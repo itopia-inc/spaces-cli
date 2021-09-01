@@ -18,6 +18,7 @@ package cmd
 import (
 	"fmt"
 	"os"
+
 	"github.com/spf13/cobra"
 
 	"github.com/spf13/viper"
@@ -27,14 +28,18 @@ var cfgFile string
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "spaces-cli",
-	Short: "A brief description of your application",
-	Long: `A longer description that spans multiple lines and likely contains
-examples and usage of using your application. For example:
+	Use:   "spaces",
+	Short: "A CLI wrapper for the itopia Spaces API",
+	Long: `
+spaces is the officially-supported CLI that makes it
+easier to use the itopia Spaces API inside a terminal.
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+For more information about itopia Spaces,
+see https://spaces.itopia.com
+
+For more information about the itopia Spaces API,
+see https://api.spaces.itopia.com
+	`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	// Run: func(cmd *cobra.Command, args []string) { },
