@@ -1,5 +1,5 @@
 /*
-Copyright © 2021 NAME HERE <EMAIL ADDRESS>
+Copyright © 2021 Itopia, Inc. <JVanBruggen@itopia.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -38,8 +38,7 @@ For more information about itopia Spaces,
 see https://spaces.itopia.com
 
 For more information about the itopia Spaces API,
-see https://api.spaces.itopia.com
-	`,
+see https://api.spaces.itopia.com`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	// Run: func(cmd *cobra.Command, args []string) { },
