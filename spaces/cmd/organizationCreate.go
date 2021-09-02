@@ -35,6 +35,6 @@ Create a new organization
 
 func init() {
 	organizationCmd.AddCommand(organizationCreateCmd)
-	organizationCreateCmd.Flags().StringP("name", "n", "", "Name for the new organization")
+	organizationCreateCmd.Flags().StringP("name", "n", "", "name for the new organization")
 	organizationCreateCmd.MarkFlagRequired("name")
 }

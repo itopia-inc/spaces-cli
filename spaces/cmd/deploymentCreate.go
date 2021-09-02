@@ -35,6 +35,6 @@ Create a new deployment
 
 func init() {
 	deploymentCmd.AddCommand(deploymentCreateCmd)
-	deploymentCreateCmd.Flags().StringP("name", "n", "", "Name for the new deployment")
+	deploymentCreateCmd.Flags().StringP("name", "n", "", "name for the new deployment")
 	deploymentCreateCmd.MarkFlagRequired("name")
 }
