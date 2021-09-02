@@ -21,7 +21,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var createCmd = &cobra.Command{
+var organizationCreateCmd = &cobra.Command{
 	Use:   "create",
 	Short: "Create a new organization",
 	Long: `
@@ -34,7 +34,7 @@ Create a new organization
 }
 
 func init() {
-	organizationCmd.AddCommand(createCmd)
-	createCmd.Flags().StringP("name", "n", "", "Name to give the new organization")
-	createCmd.MarkFlagRequired("name")
+	organizationCmd.AddCommand(organizationCreateCmd)
+	organizationCreateCmd.Flags().StringP("name", "n", "", "Name for the new organization")
+	organizationCreateCmd.MarkFlagRequired("name")
 }
