@@ -22,22 +22,26 @@ import (
 	"github.com/spf13/viper"
 )
 
-var deploymentCreateCmd = &cobra.Command{
-	Use:   "create",
-	Short: "Create a new deployment",
+var logoutCmd = &cobra.Command{
+	Use:   "logout",
+	Short: "Clear authentication token from configuration file",
 	Long: `
-Create a new deployment
+Clear authentication token from configuration file
 `,
 	Run: func(cmd *cobra.Command, args []string) {
-		token := viper.GetString("token")
-		checkToken(cmd, token)
-		// TODO: Implement this API call.
-		fmt.Printf("Your new deployment \"%v\" is ready! (Not really.)\n", name)
+		viper.Set("token", "")
+		viper.WriteConfig()
+		fmt.Printf(`
+Success!
+Authentication token cleared from configuration file.
+See configuration file here: %v
+
+Future requests will be unauthenticated by default.
+
+`, viper.GetViper().ConfigFileUsed())
 	},
 }
 
 func init() {
-	deploymentCmd.AddCommand(deploymentCreateCmd)
-	deploymentCreateCmd.Flags().StringVarP(&name, "name", "n", "", "name for the new deployment")
-	deploymentCreateCmd.MarkFlagRequired("name")
+	rootCmd.AddCommand(logoutCmd)
 }

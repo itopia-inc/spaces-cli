@@ -19,6 +19,7 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 )
 
 var organizationCreateCmd = &cobra.Command{
@@ -28,13 +29,15 @@ var organizationCreateCmd = &cobra.Command{
 Create a new organization
 `,
 	Run: func(cmd *cobra.Command, args []string) {
+		token := viper.GetString("token")
+		checkToken(cmd, token)
 		// TODO: Implement this API call.
-		fmt.Println("Your new organization is ready! (Not really.)")
+		fmt.Printf("Your new organization \"%v\" is ready! (Not really.)\n", name)
 	},
 }
 
 func init() {
 	organizationCmd.AddCommand(organizationCreateCmd)
-	organizationCreateCmd.Flags().StringP("name", "n", "", "name for the new organization")
+	organizationCreateCmd.Flags().StringVarP(&name, "name", "n", "", "name for the new organization")
 	organizationCreateCmd.MarkFlagRequired("name")
 }

@@ -18,13 +18,14 @@ package cmd
 import (
 	"fmt"
 	"os"
+	"path"
 
 	"github.com/spf13/cobra"
-
 	"github.com/spf13/viper"
 )
 
 var cfgFile string
+var token string
 
 var rootCmd = &cobra.Command{
 	Use:   "spaces",
@@ -49,7 +50,8 @@ func init() {
 	// TODO: Consider re-enabling this completion feature in the future.
 	rootCmd.CompletionOptions.DisableDefaultCmd = true
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "configuration file path (default is $HOME/.spaces.yaml)")
-	rootCmd.PersistentFlags().StringVar(&cfgFile, "token", "", "authentication token for the Spaces API")
+	rootCmd.PersistentFlags().StringVar(&token, "token", "", "authentication token for the itopia Spaces API")
+	viper.BindPFlag("token", rootCmd.PersistentFlags().Lookup("token"))
 }
 
 func initConfig() {
@@ -58,12 +60,23 @@ func initConfig() {
 	} else {
 		home, err := os.UserHomeDir()
 		cobra.CheckErr(err)
-		viper.AddConfigPath(home)
-		viper.SetConfigType("yaml")
-		viper.SetConfigName(".spaces")
+		viper.SetConfigFile(path.Join(home, ".spaces.yaml"))
 	}
+	viper.SetDefault("token", "")
 	viper.AutomaticEnv()
 	if err := viper.ReadInConfig(); err == nil {
 		fmt.Fprintln(os.Stderr, "Using config file:", viper.ConfigFileUsed())
+	}
+	viper.SafeWriteConfig()
+}
+
+// TODO: Add token validation?
+func checkToken(cmd *cobra.Command, token string) {
+	if token == "" {
+		message := `Error: missing token, either run "spaces login" or set the "--token" flag`
+		fmt.Println(message)
+		cmd.Usage()
+		fmt.Printf("\n%v\n", message)
+		os.Exit(1)
 	}
 }
