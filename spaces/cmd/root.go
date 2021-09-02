@@ -46,8 +46,8 @@ func Execute() {
 
 func init() {
 	cobra.OnInitialize(initConfig)
-	// TODO: Implement a file-based config system?
-	// rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.spaces.yaml)")
+	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "Configuration file path (default is $HOME/.spaces.yaml)")
+	rootCmd.PersistentFlags().StringVar(&cfgFile, "token", "", "Authentication token for the Spaces API")
 }
 
 func initConfig() {
