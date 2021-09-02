@@ -15,5 +15,21 @@ limitations under the License.
 */
 package cmd
 
-var organizationId string
-var name string
+import (
+	"context"
+	"fmt"
+	"log"
+
+	"github.com/machinebox/graphql"
+)
+
+var apiClient = graphql.NewClient("https://api.spaces.itopia.com")
+
+func callApi(request *graphql.Request, response *interface{}, token string) {
+	ctx := context.Background()
+	request.Header.Set("Authorization", fmt.Sprintf("Bearer: %v", token))
+	request.Header.Set("Cache-Control", "no-cache")
+	if err := apiClient.Run(ctx, request, &response); err != nil {
+		log.Fatal(err)
+	}
+}

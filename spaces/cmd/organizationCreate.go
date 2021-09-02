@@ -17,9 +17,11 @@ package cmd
 
 import (
 	"fmt"
+	"log"
 
+	"github.com/machinebox/graphql"
+	"github.com/mitchellh/mapstructure"
 	"github.com/spf13/cobra"
-	"github.com/spf13/viper"
 )
 
 var organizationCreateCmd = &cobra.Command{
@@ -29,10 +31,44 @@ var organizationCreateCmd = &cobra.Command{
 Create a new organization
 `,
 	Run: func(cmd *cobra.Command, args []string) {
-		token := viper.GetString("token")
-		checkToken(cmd, token)
-		// TODO: Implement this API call.
-		fmt.Printf("Your new organization \"%v\" is ready! (Not really.)\n", name)
+		token := readToken(cmd)
+		request := graphql.NewRequest(`
+			mutation ($name: String!) {
+				organizationCreate (input: {
+					name: $name
+				}) {
+					organization {
+						id
+					}
+					problem {
+						... on Problem {
+							message
+						}
+					}
+				}
+			}
+		`)
+		request.Var("name", name)
+		var response interface{}
+		callApi(request, &response, token)
+		var data struct {
+			OrganizationCreate struct {
+				Organization struct {
+					Id string
+				}
+				Problem struct {
+					Message string
+				}
+			}
+		}
+		err := mapstructure.Decode(response, &data)
+		if err != nil {
+			log.Fatalf("bad response: %v\n", response)
+		}
+		if data.OrganizationCreate.Problem.Message != "" {
+			log.Fatalf("Your request has a problem: %v\n", data.OrganizationCreate.Problem.Message)
+		}
+		fmt.Printf("Your new organization is ready! ID=\"%v\"\n", data.OrganizationCreate.Organization.Id)
 	},
 }
 

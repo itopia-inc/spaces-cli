@@ -17,9 +17,11 @@ package cmd
 
 import (
 	"fmt"
+	"log"
 
+	"github.com/machinebox/graphql"
+	"github.com/mitchellh/mapstructure"
 	"github.com/spf13/cobra"
-	"github.com/spf13/viper"
 )
 
 var deploymentCreateCmd = &cobra.Command{
@@ -29,15 +31,54 @@ var deploymentCreateCmd = &cobra.Command{
 Create a new deployment
 `,
 	Run: func(cmd *cobra.Command, args []string) {
-		token := viper.GetString("token")
-		checkToken(cmd, token)
-		// TODO: Implement this API call.
-		fmt.Printf("Your new deployment \"%v\" is ready! (Not really.)\n", name)
+		token := readToken(cmd)
+		// TODO: Add missing required fields to input.
+		request := graphql.NewRequest(`
+			mutation ($name: String!, $organizationId: ID!) {
+				deploymentCreate (input: {
+					name: $name
+					organizationId: $organizationId
+				}) {
+					deployment {
+						id
+					}
+					problem {
+						... on Problem {
+							message
+						}
+					}
+				}
+			}
+		`)
+		request.Var("name", name)
+		request.Var("organizationId", organizationId)
+		var response interface{}
+		callApi(request, &response, token)
+		var data struct {
+			DeploymentCreate struct {
+				Deployment struct {
+					Id string
+				}
+				Problem struct {
+					Message string
+				}
+			}
+		}
+		err := mapstructure.Decode(response, &data)
+		if err != nil {
+			log.Fatalf("bad response: %v\n", response)
+		}
+		if data.DeploymentCreate.Problem.Message != "" {
+			log.Fatalf("Your request has a problem: %v\n", data.DeploymentCreate.Problem.Message)
+		}
+		fmt.Printf("Your new deployment is ready! ID=\"%v\"\n", data.DeploymentCreate.Deployment.Id)
 	},
 }
 
 func init() {
 	deploymentCmd.AddCommand(deploymentCreateCmd)
 	deploymentCreateCmd.Flags().StringVarP(&name, "name", "n", "", "name for the new deployment")
+	deploymentCreateCmd.Flags().StringVarP(&organizationId, "organizationId", "o", "", "ID of the containing organization")
 	deploymentCreateCmd.MarkFlagRequired("name")
+	deploymentCreateCmd.MarkFlagRequired("organizationId")
 }
