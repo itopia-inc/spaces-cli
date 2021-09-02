@@ -46,6 +46,8 @@ func Execute() {
 
 func init() {
 	cobra.OnInitialize(initConfig)
+	// TODO: Consider re-enabling this completion feature in the future.
+	rootCmd.CompletionOptions.DisableDefaultCmd = true
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "configuration file path (default is $HOME/.spaces.yaml)")
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "token", "", "authentication token for the Spaces API")
 }
