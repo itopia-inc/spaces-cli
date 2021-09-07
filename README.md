@@ -11,6 +11,9 @@ see https://api.spaces.itopia.com
 
 # TODO list
 
+- Authentication
+  - `spaces login`
+  - `spaces [COMMAND] --token='...'`
 - Improve root-level examples (in `oclif.description` in `package.json`)
   - `spaces organization:update`
   - `spaces collection:addUser`
