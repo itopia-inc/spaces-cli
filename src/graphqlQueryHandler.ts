@@ -1,7 +1,7 @@
-import { Command } from '@oclif/command';
-import { GraphQLClient } from 'graphql-request';
+import { Command } from "@oclif/command";
+import { GraphQLClient } from "graphql-request";
 
-const API_URL = 'https://api.spaces.itopia.com'
+const API_URL = "https://api.spaces.itopia.com";
 
 interface QueryHandlerProps {
   command: Command;

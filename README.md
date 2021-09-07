@@ -1,5 +1,4 @@
-itopia Spaces CLI
-=================
+# itopia Spaces CLI
 
 An [oclif](https://oclif.io)-based CLI wrapper
 for [the itopia Spaces API](https://api.spaces.itopia.com)
@@ -25,7 +24,9 @@ see https://api.spaces.itopia.com
 - Open source
 
 # Usage
+
 <!-- usage -->
+
 ```sh-session
 $ npm install -g spaces
 $ spaces COMMAND
@@ -37,13 +38,16 @@ USAGE
   $ spaces COMMAND
 ...
 ```
+
 <!-- usagestop -->
 
 # Commands
+
 <!-- commands -->
-* [`spaces hello [FILE]`](#spaces-hello-file)
-* [`spaces help [COMMAND]`](#spaces-help-command)
-* [`spaces organization:create`](#spaces-organizationcreate)
+
+- [`spaces hello [FILE]`](#spaces-hello-file)
+- [`spaces help [COMMAND]`](#spaces-help-command)
+- [`spaces organization:create`](#spaces-organizationcreate)
 
 ## `spaces hello [FILE]`
 
@@ -99,4 +103,5 @@ EXAMPLE
 ```
 
 _See code: [src/commands/organization/create.ts](https://github.com/itopia/spaces-cli/blob/v0.0.0/src/commands/organization/create.ts)_
+
 <!-- commandsstop -->
