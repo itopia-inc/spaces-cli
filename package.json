@@ -30,6 +30,8 @@
     "eslint-config-oclif": "^3.1.0",
     "eslint-config-oclif-typescript": "^0.1.0",
     "globby": "^10.0.2",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
     "mocha": "^5.2.0",
     "nyc": "^14.1.1",
     "pkg": "^5.3.1",
@@ -51,6 +53,9 @@
     "oclif"
   ],
   "license": "none",
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
   "main": "lib/index.js",
   "oclif": {
     "bin": "spaces",
@@ -75,6 +80,7 @@
     "posttest": "eslint . --ext .ts --config .eslintrc",
     "prebuild": "npm run codegen",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "prepare": "husky install",
     "pretest": "npm run codegen",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif-dev readme && git add README.md"
