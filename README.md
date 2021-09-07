@@ -12,7 +12,6 @@ see https://api.spaces.itopia.com
 
 # TODO list
 
-- Packaging
 - Codegen
 - Licensing
 - Open source
