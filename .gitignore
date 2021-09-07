@@ -6,3 +6,7 @@
 /tmp
 /yarn.lock
 node_modules
+
+# Generated files
+src/graphqlTypes.ts
+src/commands/**/*.ts

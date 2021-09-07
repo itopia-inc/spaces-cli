@@ -12,7 +12,10 @@ see https://api.spaces.itopia.com
 
 # TODO list
 
-- Codegen
+- Improve root-level examples (in `oclif.description` in `package.json`)
+  - `spaces organization:update`
+  - `spaces collection:addUser`
+  - `spaces deployment:statistics`
 - Licensing
 - Open source
 

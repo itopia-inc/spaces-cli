@@ -1,0 +1,19 @@
+mutation organizationCreate($name: String!)
+  @oclif(
+    description: "Create a new organization",
+    example: "spaces organization:create --name='My Organization'",
+  )
+{
+  organizationCreate(input: {name: $name}) {
+    organization {
+      id
+      name
+    }
+    problem {
+      ... on Problem {
+        __typename
+        message
+      }
+    }
+  }
+}
