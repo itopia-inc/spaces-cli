@@ -7,6 +7,10 @@ mutation organizationCreate($name: String!)
     organization {
       id
       name
+      owners {
+        emailAddress
+        status
+      }
     }
     problem {
       ... on Problem {

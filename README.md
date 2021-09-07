@@ -11,9 +11,7 @@ see https://api.spaces.itopia.com
 
 # TODO list
 
-- Authentication
-  - `spaces login`
-  - `spaces [COMMAND] --token='...'`
+- Authentication via `--token`
 - Improve root-level examples (in `oclif.description` in `package.json`)
   - `spaces organization:update`
   - `spaces collection:addUser`
@@ -50,6 +48,8 @@ USAGE
 
 - [`spaces hello [FILE]`](#spaces-hello-file)
 - [`spaces help [COMMAND]`](#spaces-help-command)
+- [`spaces login`](#spaces-login)
+- [`spaces logout`](#spaces-logout)
 - [`spaces organization:create`](#spaces-organizationcreate)
 
 ## `spaces hello [FILE]`
@@ -88,6 +88,34 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.3/src/commands/help.ts)_
+
+## `spaces login`
+
+Generate & save an authentication token
+
+```
+USAGE
+  $ spaces login
+
+OPTIONS
+  -h, --help  show CLI help
+```
+
+_See code: [src/commands/login.ts](https://github.com/itopia/spaces-cli/blob/v0.0.0/src/commands/login.ts)_
+
+## `spaces logout`
+
+Clear the saved authentication token
+
+```
+USAGE
+  $ spaces logout
+
+OPTIONS
+  -h, --help  show CLI help
+```
+
+_See code: [src/commands/logout.ts](https://github.com/itopia/spaces-cli/blob/v0.0.0/src/commands/logout.ts)_
 
 ## `spaces organization:create`
 

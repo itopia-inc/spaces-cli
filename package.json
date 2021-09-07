@@ -11,6 +11,7 @@
     "@oclif/command": "^1.8.0",
     "@oclif/config": "^1.17.0",
     "@oclif/plugin-help": "^3.2.3",
+    "conf": "^10.0.2",
     "graphql": "^15.5.3",
     "graphql-request": "^3.5.0",
     "tslib": "^1.14.1"
@@ -61,7 +62,7 @@
   "oclif": {
     "bin": "spaces",
     "commands": "./lib/commands",
-    "description": "A CLI wrapper for the itopia Spaces API\nFor more information about itopia Spaces, see https://spaces.itopia.com\nFor more information about the itopia Spaces API, see https://api.spaces.itopia.com\n\nExamples:\nspaces organization:create --name='My Organization'",
+    "description": "A CLI wrapper for the itopia Spaces API\nFor more information about itopia Spaces, see https://spaces.itopia.com\nFor more information about the itopia Spaces API, see https://api.spaces.itopia.com\n\nExamples:\nspaces help\nspaces help login\nspaces login\nspaces organization:create --name='My Organization'",
     "plugins": [
       "@oclif/plugin-help"
     ],
@@ -79,14 +80,12 @@
     "format": "prettier --write .",
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "eslint . --ext .ts --config .eslintrc",
-    "postcodegen": "npm run format",
     "postdocsgen": "npm run format",
     "prebuild": "npm run codegen",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "prepare": "husky install",
     "pretest": "npm run codegen",
-    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
-    "version": "oclif-dev readme && git add README.md"
+    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\""
   },
   "types": "lib/index.d.ts"
 }

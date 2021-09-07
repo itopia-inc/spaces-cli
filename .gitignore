@@ -9,6 +9,8 @@ node_modules
 
 # Generated files
 src/commands/**/*.ts
+!src/commands/login.ts
+!src/commands/logout.ts
 src/graphql-types.ts
 
 # IDE settings
