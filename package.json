@@ -45,8 +45,9 @@
   "license": "none",
   "main": "lib/index.js",
   "oclif": {
-    "commands": "./lib/commands",
     "bin": "spaces",
+    "commands": "./lib/commands",
+    "description": "A CLI wrapper for the itopia Spaces API\nFor more information about itopia Spaces, see https://spaces.itopia.com\nFor more information about the itopia Spaces API, see https://api.spaces.itopia.com",
     "plugins": [
       "@oclif/plugin-help"
     ]

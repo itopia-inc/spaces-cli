@@ -1,12 +1,14 @@
-spaces
-======
+itopia Spaces CLI
+=================
 
-A CLI wrapper for the itopia Spaces API
+An [oclif](https://oclif.io)-based CLI wrapper
+for [the itopia Spaces API](https://api.spaces.itopia.com)
 
-[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/spaces.svg)](https://npmjs.org/package/spaces)
-[![Downloads/week](https://img.shields.io/npm/dw/spaces.svg)](https://npmjs.org/package/spaces)
-[![License](https://img.shields.io/npm/l/spaces.svg)](https://github.com/itopia/spaces-cli/blob/master/package.json)
+For more information about itopia Spaces,
+see https://spaces.itopia.com
+
+For more information about the itopia Spaces API,
+see https://api.spaces.itopia.com
 
 <!-- toc -->
 * [Usage](#usage)
