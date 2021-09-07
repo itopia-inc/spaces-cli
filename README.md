@@ -10,6 +10,13 @@ see https://spaces.itopia.com
 For more information about the itopia Spaces API,
 see https://api.spaces.itopia.com
 
+# TODO list
+
+- Packaging
+- Codegen
+- Licensing
+- Open source
+
 <!-- toc -->
 * [Usage](#usage)
 * [Commands](#commands)
