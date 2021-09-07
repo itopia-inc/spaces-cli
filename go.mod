@@ -3,6 +3,7 @@ module dev.azure.com/itopiadev/GPod/_git/spaces-cli
 go 1.14
 
 require (
+	github.com/Laisky/graphql v1.0.5
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
 	github.com/machinebox/graphql v0.2.2
 	github.com/manifoldco/promptui v0.8.0

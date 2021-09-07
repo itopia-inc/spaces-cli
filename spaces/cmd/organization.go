@@ -19,7 +19,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var organizationCmd = &cobra.Command{
+var organization = &cobra.Command{
 	Use:   "organization",
 	Short: "Manage your organization(s)",
 	Long: `
@@ -34,5 +34,5 @@ An organization is global, and it contains:
 }
 
 func init() {
-	rootCmd.AddCommand(organizationCmd)
+	rootCmd.AddCommand(organization)
 }

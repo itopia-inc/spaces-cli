@@ -69,16 +69,3 @@ func initConfig() {
 	}
 	viper.SafeWriteConfig()
 }
-
-func readToken(cmd *cobra.Command) string {
-	viper.GetString("token")
-	// TODO: Add token validation?
-	if token == "" {
-		message := `Error: missing token, either run "spaces login" or set the "--token" flag`
-		fmt.Println(message)
-		cmd.Usage()
-		fmt.Printf("\n%v\n", message)
-		os.Exit(1)
-	}
-	return token
-}

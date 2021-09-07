@@ -19,17 +19,50 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"net/http"
+	"os"
 
-	"github.com/machinebox/graphql"
+	"github.com/Laisky/graphql"
+	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 )
 
-var apiClient = graphql.NewClient("https://api.spaces.itopia.com")
+const apiUrl = "https://api.spaces.itopia.com"
 
-func callApi(request *graphql.Request, response *interface{}, token string) {
-	ctx := context.Background()
-	request.Header.Set("Authorization", fmt.Sprintf("Bearer: %v", token))
-	request.Header.Set("Cache-Control", "no-cache")
-	if err := apiClient.Run(ctx, request, &response); err != nil {
-		log.Fatal(err)
+func mutate(command *cobra.Command, mutation interface{}, variables map[string]interface{}) {
+	c := newApiClient(command)
+	err := c.Mutate(
+		context.Background(),
+		mutation,
+		variables,
+	)
+	if err != nil {
+		log.Fatalf("API error: %v\n", err)
 	}
+}
+
+func newApiClient(cmd *cobra.Command) *graphql.Client {
+	token := readToken(cmd)
+	client := graphql.NewClient(
+		apiUrl,
+		http.DefaultClient,
+		graphql.WithHeader(
+			"Authorization",
+			fmt.Sprintf("Bearer %v", token),
+		),
+	)
+	return client
+}
+
+func readToken(cmd *cobra.Command) string {
+	token := viper.GetString("token")
+	if token == "" {
+		message := `Error: missing token - either run "spaces login" or set the "--token" flag`
+		fmt.Println(message)
+		cmd.Usage()
+		fmt.Printf("\n%v\n", message)
+		os.Exit(1)
+	}
+	// TODO: Add token validation?
+	return token
 }

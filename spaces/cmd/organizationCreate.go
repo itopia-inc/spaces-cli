@@ -19,61 +19,48 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/machinebox/graphql"
-	"github.com/mitchellh/mapstructure"
+	"github.com/Laisky/graphql"
 	"github.com/spf13/cobra"
 )
 
-var organizationCreateCmd = &cobra.Command{
+var organizationCreate = &cobra.Command{
 	Use:   "create",
 	Short: "Create a new organization",
 	Long: `
 Create a new organization
 `,
-	Run: func(cmd *cobra.Command, args []string) {
-		token := readToken(cmd)
-		request := graphql.NewRequest(`
-			mutation ($name: String!) {
-				organizationCreate (input: {
-					name: $name
-				}) {
-					organization {
-						id
-					}
-					problem {
-						... on Problem {
-							message
-						}
-					}
-				}
-			}
-		`)
-		request.Var("name", name)
-		var response interface{}
-		callApi(request, &response, token)
-		var data struct {
+	Run: func(c *cobra.Command, args []string) {
+		var mutation struct {
 			OrganizationCreate struct {
 				Organization struct {
-					Id string
+					Id graphql.String
 				}
 				Problem struct {
-					Message string
+					Problem struct {
+						Message graphql.String
+					} `graphql:"... on Problem"`
 				}
-			}
+			} `graphql:"organizationCreate(input: {name: $name})"`
 		}
-		err := mapstructure.Decode(response, &data)
-		if err != nil {
-			log.Fatalf("bad response: %v\n", response)
+		variables := map[string]interface{}{
+			"name": graphql.String(name),
 		}
-		if data.OrganizationCreate.Problem.Message != "" {
-			log.Fatalf("Your request has a problem: %v\n", data.OrganizationCreate.Problem.Message)
+		mutate(c, &mutation, variables)
+		if mutation.OrganizationCreate.Problem.Problem.Message != "" {
+			log.Fatalf(
+				"API problem: %v\n",
+				mutation.OrganizationCreate.Problem.Problem.Message,
+			)
 		}
-		fmt.Printf("Your new organization is ready! ID=\"%v\"\n", data.OrganizationCreate.Organization.Id)
+		fmt.Printf(
+			"Your new organization is ready!\nID=\"%v\"\n",
+			mutation.OrganizationCreate.Organization.Id,
+		)
 	},
 }
 
 func init() {
-	organizationCmd.AddCommand(organizationCreateCmd)
-	organizationCreateCmd.Flags().StringVarP(&name, "name", "n", "", "name for the new organization")
-	organizationCreateCmd.MarkFlagRequired("name")
+	organization.AddCommand(organizationCreate)
+	organizationCreate.Flags().StringVarP(&name, "name", "n", "", "name for the new organization")
+	organizationCreate.MarkFlagRequired("name")
 }

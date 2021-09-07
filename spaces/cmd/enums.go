@@ -15,7 +15,9 @@ limitations under the License.
 */
 package cmd
 
-var enableGoogleSSO bool
-var name string
-var organizationId string
-var storageSize int
+type ManagedStorageTier string
+
+const (
+	ManagedStorageTierPremium  ManagedStorageTier = "PREMIUM"
+	ManagedStorageTierStandard ManagedStorageTier = "STANDARD"
+)
