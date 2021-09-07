@@ -26,6 +26,7 @@ see https://api.spaces.itopia.com
 
 # Usage
 
+<!-- The comment below is required for `npm run docsgen` -->
 <!-- usage -->
 
 ```sh-session
@@ -41,9 +42,11 @@ USAGE
 ```
 
 <!-- usagestop -->
+<!-- The comment above is required for `npm run docsgen` -->
 
 # Commands
 
+<!-- The comment below is required for `npm run docsgen` -->
 <!-- commands -->
 
 - [`spaces help [COMMAND]`](#spaces-help-command)
@@ -115,3 +118,4 @@ EXAMPLE
 _See code: [src/commands/organization/create.ts](https://github.com/itopia/spaces-cli/blob/v0.0.0/src/commands/organization/create.ts)_
 
 <!-- commandsstop -->
+<!-- The comment above is required for `npm run docsgen` -->
