@@ -68,6 +68,7 @@
   "scripts": {
     "build": "pkg . --out-path=dist",
     "codegen": "graphql-codegen --config codegen.yml",
+    "docsgen": "oclif-dev readme",
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "eslint . --ext .ts --config .eslintrc",
     "prebuild": "npm run codegen",

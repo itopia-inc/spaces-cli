@@ -16,13 +16,14 @@ see https://api.spaces.itopia.com
   - `spaces organization:update`
   - `spaces collection:addUser`
   - `spaces deployment:statistics`
+- Improve usage workflow
+  - Replace npm-library-based distribution automation with executable-based
+  - Add README section for developer setup
+  - Add README section for users who want to build from source
+  - Improve README "Usage" section
 - Licensing
 - Open source
 
-<!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
-<!-- tocstop -->
 # Usage
 <!-- usage -->
 ```sh-session
@@ -37,10 +38,12 @@ USAGE
 ...
 ```
 <!-- usagestop -->
+
 # Commands
 <!-- commands -->
 * [`spaces hello [FILE]`](#spaces-hello-file)
 * [`spaces help [COMMAND]`](#spaces-help-command)
+* [`spaces organization:create`](#spaces-organizationcreate)
 
 ## `spaces hello [FILE]`
 
@@ -78,4 +81,22 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.3/src/commands/help.ts)_
+
+## `spaces organization:create`
+
+Create a new organization
+
+```
+USAGE
+  $ spaces organization:create
+
+OPTIONS
+  -h, --help   show CLI help
+  --name=name  (required)
+
+EXAMPLE
+  spaces organization:create --name='My Organization'
+```
+
+_See code: [src/commands/organization/create.ts](https://github.com/itopia/spaces-cli/blob/v0.0.0/src/commands/organization/create.ts)_
 <!-- commandsstop -->
