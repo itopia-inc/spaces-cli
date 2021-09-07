@@ -33,6 +33,7 @@
     "mocha": "^5.2.0",
     "nyc": "^14.1.1",
     "pkg": "^5.3.1",
+    "prettier": "2.3.2",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.10"
   },
@@ -69,6 +70,7 @@
     "build": "pkg . --out-path=dist",
     "codegen": "graphql-codegen --config codegen.yml",
     "docsgen": "oclif-dev readme",
+    "format": "prettier --write .",
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "eslint . --ext .ts --config .eslintrc",
     "prebuild": "npm run codegen",

@@ -1,0 +1,2 @@
+/src/commands/**/*.ts
+/src/graphqlTypes.ts

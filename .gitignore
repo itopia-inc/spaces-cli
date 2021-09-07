@@ -8,5 +8,5 @@
 node_modules
 
 # Generated files
-src/graphqlTypes.ts
 src/commands/**/*.ts
+src/graphqlTypes.ts
