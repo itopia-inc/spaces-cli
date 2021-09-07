@@ -46,31 +46,10 @@ USAGE
 
 <!-- commands -->
 
-- [`spaces hello [FILE]`](#spaces-hello-file)
 - [`spaces help [COMMAND]`](#spaces-help-command)
 - [`spaces login`](#spaces-login)
 - [`spaces logout`](#spaces-logout)
 - [`spaces organization:create`](#spaces-organizationcreate)
-
-## `spaces hello [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ spaces hello [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-
-EXAMPLE
-  $ spaces hello
-  hello world from ./src/hello.ts!
-```
-
-_See code: [src/commands/hello.ts](https://github.com/itopia/spaces-cli/blob/v0.0.0/src/commands/hello.ts)_
 
 ## `spaces help [COMMAND]`
 
