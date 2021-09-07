@@ -1,2 +1,2 @@
 /src/commands/**/*.ts
-/src/graphqlTypes.ts
+/src/graphql-types.ts

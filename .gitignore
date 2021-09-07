@@ -9,7 +9,7 @@ node_modules
 
 # Generated files
 src/commands/**/*.ts
-src/graphqlTypes.ts
+src/graphql-types.ts
 
 # IDE settings
 .vscode
