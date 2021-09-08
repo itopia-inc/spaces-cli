@@ -75,7 +75,7 @@
   "repository": "itopia/spaces-cli",
   "scripts": {
     "build": "pkg . --out-path=dist",
-    "codegen": "graphql-codegen --config codegen.yml",
+    "codegen": "graphql-codegen --config codegen.yaml",
     "docsgen": "oclif-dev readme",
     "format": "prettier --write .",
     "postpack": "rm -f oclif.manifest.json",
