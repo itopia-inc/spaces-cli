@@ -1,0 +1,28 @@
+query organizationListSpaces($id: ID!)
+@oclif(
+  description: "List all spaces in an organization"
+  example: "spaces organization:list-spaces --id='abc123organizationionid'"
+) {
+  organization(input: { id: $id }) {
+    organization {
+      id
+      name
+      deployments {
+        id
+        name
+        collections {
+          spaces {
+            id
+            name
+          }
+        }
+      }
+    }
+    problem {
+      ... on Problem {
+        __typename
+        message
+      }
+    }
+  }
+}

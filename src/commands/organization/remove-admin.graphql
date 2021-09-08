@@ -1,0 +1,16 @@
+mutation organizationRemoveAdministrator($email: String!, $id: ID!)
+@oclif(
+  description: "Remove someone from an organization's list of administrators"
+  example: "spaces organization:remove-admin --email='someone@example.com' --id='abc123OrganizationID'"
+) {
+  organizationRevokeOwnerRole(
+    input: { revokeeEmailAddress: $email, organizationId: $id }
+  ) {
+    problem {
+      ... on Problem {
+        __typename
+        message
+      }
+    }
+  }
+}

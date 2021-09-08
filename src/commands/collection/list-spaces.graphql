@@ -1,0 +1,22 @@
+query collectionListSpaces($id: ID!, $deploymentId: ID!)
+@oclif(
+  description: "List all spaces in a collection"
+  example: "spaces collection:list-spaces --id='abc123CollectionID' --deploymentId='abc123DeploymentID'"
+) {
+  collection(input: { collectionId: $id, deploymentId: $deploymentId }) {
+    collection {
+      id
+      name
+      spaces {
+        id
+        name
+      }
+    }
+    problem {
+      ... on Problem {
+        __typename
+        message
+      }
+    }
+  }
+}

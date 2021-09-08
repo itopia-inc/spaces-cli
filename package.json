@@ -62,13 +62,22 @@
   "oclif": {
     "bin": "spaces",
     "commands": "./lib/commands",
-    "description": "A CLI wrapper for the itopia Spaces API\nFor more information about itopia Spaces, see https://spaces.itopia.com\nFor more information about the itopia Spaces API, see https://api.spaces.itopia.com\n\nExamples:\nspaces help\nspaces help login\nspaces login\nspaces organization:create --name='My Organization'",
+    "description": "A CLI wrapper for the itopia Spaces API\nFor more information about itopia Spaces, see https://spaces.itopia.com\nFor more information about the itopia Spaces API, see https://api.spaces.itopia.com\n\nExamples:\nspaces login\nspaces help organization\nspaces organization:list\nspaces deployment:create --name='My Deployment' ...",
     "plugins": [
       "@oclif/plugin-help"
     ],
     "topics": {
+      "collection": {
+        "description": "Manage your deployments' collections (end user access)\nA \"collection\" is a set of metadata for grouping spaces, and it contains:\n- spaces\n- end users"
+      },
+      "deployment": {
+        "description": "Manage your organizations' deployments (regional resources)\nA \"deployment\" is a set of regional itopia-managed resources for running spaces, and it contains:\n- collections (for grouping spaces)\n- settings"
+      },
       "organization": {
-        "description": "Manage your organization(s)"
+        "description": "Manage your organizations (administrator access)\nAn \"organization\" is a set of metadata for managing spaces, and it contains:\n- deployments (for running spaces)\n- images (for defining spaces)\n- administrators\n- a billing account"
+      },
+      "space": {
+        "description": "Manage your collections' spaces\nA \"space\" is a remote environment for your end users to work inside, and it contains:\n- sessions (of active end users)\n- settings"
       }
     }
   },

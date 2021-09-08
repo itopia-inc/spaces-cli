@@ -11,10 +11,23 @@ see https://api.spaces.itopia.com
 
 # TODO list
 
-- Improve root-level examples (in `oclif.description` in `package.json`)
-  - `spaces organization:update`
-  - `spaces collection:addUser`
-  - `spaces deployment:statistics`
+- Add `:read` commands for every topic
+- Add `me` topic
+  - `me:list-organizations`
+  - `me:list-deployments`
+  - `me:list-collections`
+  - `me:list-spaces`
+  - `me:read`
+- Add `image` topic and related commands
+  - `image:create`
+  - `image:read`
+  - `image:update`
+  - `image:delete`
+  - `organization:list-images`
+- Add end user management commands
+  - `collection:add-user`
+  - `collection:remove-user`
+- Add tests for generated commands
 - Gracefully handle saved token expiration
 - Per-command authentication via `--token`
 - Improve usage workflow

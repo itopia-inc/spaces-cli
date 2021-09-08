@@ -1,0 +1,18 @@
+mutation organizationUpdate($id: ID!, $name: String!)
+@oclif(
+  description: "Update an organization's name"
+  example: "spaces organization:update --id='abc123OrganizationID' --name='My Organization'"
+) {
+  organizationUpdate(input: { id: $id, name: $name }) {
+    organization {
+      id
+      name
+    }
+    problem {
+      ... on Problem {
+        __typename
+        message
+      }
+    }
+  }
+}
