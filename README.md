@@ -11,11 +11,12 @@ see https://api.spaces.itopia.com
 
 # TODO list
 
-- Authentication via `--token`
 - Improve root-level examples (in `oclif.description` in `package.json`)
   - `spaces organization:update`
   - `spaces collection:addUser`
   - `spaces deployment:statistics`
+- Gracefully handle saved token expiration
+- Per-command authentication via `--token`
 - Improve usage workflow
   - Replace npm-library-based distribution automation with executable-based
   - Add README section for developer setup
