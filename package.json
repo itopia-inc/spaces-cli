@@ -36,7 +36,7 @@
     "lint-staged": "^11.1.2",
     "mocha": "^5.2.0",
     "nyc": "^14.1.1",
-    "pkg": "^5.3.1",
+    "pkg": "4.4.9",
     "prettier": "2.3.2",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.10"
@@ -81,17 +81,20 @@
       }
     }
   },
+  "pkg": {
+    "scripts": "./lib/**/*.js"
+  },
   "repository": "itopia/spaces-cli",
   "scripts": {
-    "build": "pkg . --out-path=dist",
+    "build": "npm run compile && npm run package",
     "codegen": "graphql-codegen --config codegen.yaml",
+    "compile": "rm -rf lib && tsc -b && rm tsconfig.tsbuildinfo",
     "docsgen": "oclif-dev readme",
     "format": "prettier --write .",
-    "postpack": "rm -f oclif.manifest.json",
+    "package": "pkg . --out-path dist",
     "posttest": "eslint . --ext .ts --config .eslintrc",
     "postdocsgen": "npm run format",
     "prebuild": "npm run codegen",
-    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "prepare": "husky install",
     "pretest": "npm run codegen",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\""
