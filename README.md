@@ -12,12 +12,11 @@ see https://api.spaces.itopia.com
 # TODO list
 
 - Add `:read` commands for every topic
-- Add `me` topic
-  - `me:list-organizations`
-  - `me:list-deployments`
-  - `me:list-collections`
-  - `me:list-spaces`
-  - `me:read`
+- Add `config` topic
+  - `config:list`
+  - `config:set`
+  - `config:get-value`
+  - `config:configurations:list/create/activate`?
 - Add `image` topic and related commands
   - `image:create`
   - `image:read`
@@ -64,9 +63,11 @@ USAGE
 <!-- commands -->
 
 - [`spaces collection:delete`](#spaces-collectiondelete)
+- [`spaces collection:list`](#spaces-collectionlist)
 - [`spaces collection:list-spaces`](#spaces-collectionlist-spaces)
 - [`spaces deployment:create`](#spaces-deploymentcreate)
 - [`spaces deployment:delete`](#spaces-deploymentdelete)
+- [`spaces deployment:list`](#spaces-deploymentlist)
 - [`spaces deployment:list-collections`](#spaces-deploymentlist-collections)
 - [`spaces deployment:list-spaces`](#spaces-deploymentlist-spaces)
 - [`spaces deployment:update`](#spaces-deploymentupdate)
@@ -76,12 +77,14 @@ USAGE
 - [`spaces organization:add-admin`](#spaces-organizationadd-admin)
 - [`spaces organization:create`](#spaces-organizationcreate)
 - [`spaces organization:delete`](#spaces-organizationdelete)
+- [`spaces organization:list`](#spaces-organizationlist)
 - [`spaces organization:list-collections`](#spaces-organizationlist-collections)
 - [`spaces organization:list-deployments`](#spaces-organizationlist-deployments)
 - [`spaces organization:list-spaces`](#spaces-organizationlist-spaces)
 - [`spaces organization:remove-admin`](#spaces-organizationremove-admin)
 - [`spaces organization:update`](#spaces-organizationupdate)
 - [`spaces space:delete`](#spaces-spacedelete)
+- [`spaces space:list`](#spaces-spacelist)
 
 ## `spaces collection:delete`
 
@@ -101,6 +104,23 @@ EXAMPLE
 ```
 
 _See code: [src/commands/collection/delete.ts](https://github.com/itopia/spaces-cli/blob/v0.0.0/src/commands/collection/delete.ts)_
+
+## `spaces collection:list`
+
+List all of your collections
+
+```
+USAGE
+  $ spaces collection:list
+
+OPTIONS
+  -h, --help  show CLI help
+
+EXAMPLE
+  spaces collection:list
+```
+
+_See code: [src/commands/collection/list.ts](https://github.com/itopia/spaces-cli/blob/v0.0.0/src/commands/collection/list.ts)_
 
 ## `spaces collection:list-spaces`
 
@@ -162,6 +182,23 @@ EXAMPLE
 ```
 
 _See code: [src/commands/deployment/delete.ts](https://github.com/itopia/spaces-cli/blob/v0.0.0/src/commands/deployment/delete.ts)_
+
+## `spaces deployment:list`
+
+List all of your deployments
+
+```
+USAGE
+  $ spaces deployment:list
+
+OPTIONS
+  -h, --help  show CLI help
+
+EXAMPLE
+  spaces deployment:list
+```
+
+_See code: [src/commands/deployment/list.ts](https://github.com/itopia/spaces-cli/blob/v0.0.0/src/commands/deployment/list.ts)_
 
 ## `spaces deployment:list-collections`
 
@@ -324,6 +361,23 @@ EXAMPLE
 
 _See code: [src/commands/organization/delete.ts](https://github.com/itopia/spaces-cli/blob/v0.0.0/src/commands/organization/delete.ts)_
 
+## `spaces organization:list`
+
+List all of your organizations
+
+```
+USAGE
+  $ spaces organization:list
+
+OPTIONS
+  -h, --help  show CLI help
+
+EXAMPLE
+  spaces organization:list
+```
+
+_See code: [src/commands/organization/list.ts](https://github.com/itopia/spaces-cli/blob/v0.0.0/src/commands/organization/list.ts)_
+
 ## `spaces organization:list-collections`
 
 List all collections in an organization
@@ -437,6 +491,23 @@ EXAMPLE
 ```
 
 _See code: [src/commands/space/delete.ts](https://github.com/itopia/spaces-cli/blob/v0.0.0/src/commands/space/delete.ts)_
+
+## `spaces space:list`
+
+List all of your spaces
+
+```
+USAGE
+  $ spaces space:list
+
+OPTIONS
+  -h, --help  show CLI help
+
+EXAMPLE
+  spaces space:list
+```
+
+_See code: [src/commands/space/list.ts](https://github.com/itopia/spaces-cli/blob/v0.0.0/src/commands/space/list.ts)_
 
 <!-- commandsstop -->
 <!-- The comment above is required for `npm run docsgen` -->

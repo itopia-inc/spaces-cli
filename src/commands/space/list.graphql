@@ -1,0 +1,29 @@
+query spaceList
+@oclif(description: "List all of your spaces", example: "spaces space:list") {
+  me {
+    administrator {
+      organizations {
+        id
+        name
+        deployments {
+          id
+          name
+          collections {
+            id
+            name
+            spaces {
+              id
+              name
+            }
+          }
+        }
+      }
+    }
+    problem {
+      ... on Problem {
+        __typename
+        message
+      }
+    }
+  }
+}

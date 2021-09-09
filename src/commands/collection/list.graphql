@@ -1,0 +1,28 @@
+query collectionList
+@oclif(
+  description: "List all of your collections"
+  example: "spaces collection:list"
+) {
+  me {
+    administrator {
+      organizations {
+        id
+        name
+        deployments {
+          id
+          name
+          collections {
+            id
+            name
+          }
+        }
+      }
+    }
+    problem {
+      ... on Problem {
+        __typename
+        message
+      }
+    }
+  }
+}
