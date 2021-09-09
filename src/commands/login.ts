@@ -13,7 +13,7 @@ export default class Login extends Command {
   async run() {
     this.parse(Login);
     this.log(`
-1. Sign in to itopia Spaces here: https://not.really.test
+1. Sign in to itopia Spaces here: https://itopia-spaces-token-dispenser.web.app
 
 2. After signing in, copy/paste the generated authentication token into the prompt below.
 `);
