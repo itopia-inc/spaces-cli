@@ -11,6 +11,9 @@ node_modules
 src/commands/**/*.ts
 !src/commands/login.ts
 !src/commands/logout.ts
+!src/commands/deployment/create.ts
+!src/commands/deployment/update.ts
+!src/commands/space/delete.ts
 src/graphql-types.ts
 
 # IDE settings
