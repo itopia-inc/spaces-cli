@@ -11,7 +11,6 @@ see https://api.spaces.itopia.com
 
 # TODO list
 
-- Add `:read` commands for every topic
 - Add `config` topic
   - `config:list`
   - `config:set`

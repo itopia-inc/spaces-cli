@@ -1,0 +1,42 @@
+query spaceRead($collectionId: ID!, $deploymentId: ID!, $id: ID!)
+@oclif(
+  description: "Read all properties of a space"
+  example: "spaces space:read --id='abc123spaceid'"
+) {
+  space(
+    input: {
+      collectionId: $collectionId
+      deploymentId: $deploymentId
+      spaceId: $id
+    }
+  ) {
+    space {
+      catalogItem {
+        id
+      }
+      description
+      id
+      launcherUrl
+      name
+      settings {
+        dockerPersistentStorageSizeinGigabytes
+        enableDocker
+        enableInboundClipboardRedirection
+        enableOutboundClipboardRedirection
+        enablePDFPrinter
+        enablePersistentHome
+        inactivityTerminationDelayInMinutes
+        persistentHomeSizeInGigabytes
+        size
+      }
+      state
+      stateMessage
+    }
+    problem {
+      ... on Problem {
+        __typename
+        message
+      }
+    }
+  }
+}
