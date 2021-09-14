@@ -1,0 +1,25 @@
+query deploymentRead($id: ID!, $organizationId: ID!)
+@oclif(
+  description: "Read all properties of a deployment"
+  example: "spaces deployment:read --id='abc123deploymentid'"
+) {
+  deployment(input: { deploymentId: $id, organizationId: $organizationId }) {
+    deployment {
+      doesManagedStorageAutoGrow
+      id
+      isGoogleIdentityProviderEnabled
+      launcherUrl
+      managedStorageSizeInGigabytes
+      managedStorageTier
+      name
+      region
+      status
+    }
+    problem {
+      ... on Problem {
+        __typename
+        message
+      }
+    }
+  }
+}

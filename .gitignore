@@ -1,0 +1,20 @@
+*-debug.log
+*-error.log
+/.nyc_output
+/dist
+/lib
+/tmp
+/yarn.lock
+node_modules
+
+# Generated files
+src/commands/**/*.ts
+!src/commands/login.ts
+!src/commands/logout.ts
+!src/commands/deployment/create.ts
+!src/commands/deployment/update.ts
+!src/commands/space/delete.ts
+src/graphql-types.ts
+
+# IDE settings
+.vscode

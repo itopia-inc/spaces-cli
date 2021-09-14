@@ -1,0 +1,14 @@
+mutation organizationDelete($id: ID!)
+@oclif(
+  description: "Delete an organization"
+  example: "spaces organization:delete --id='abc123OrganizationID'"
+) {
+  organizationDelete(input: { id: $id }) {
+    problem {
+      ... on Problem {
+        __typename
+        message
+      }
+    }
+  }
+}

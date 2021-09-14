@@ -1,0 +1,15 @@
+overwrite: true
+schema: "https://api.spaces.itopia.com"
+documents: "src/commands/**/*.graphql"
+generates:
+  src/graphql-types.ts:
+    plugins:
+      - "typescript"
+  src/commands/:
+    preset: near-operation-file
+    presetConfig:
+      extension: .ts
+      baseTypesPath: ../graphql-types.ts
+    plugins:
+      - typescript-oclif:
+          handlerPath: ../../graphql-query-handler

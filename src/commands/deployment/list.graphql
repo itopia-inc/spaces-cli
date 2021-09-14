@@ -1,0 +1,24 @@
+query deploymentList
+@oclif(
+  description: "List all of your deployments"
+  example: "spaces deployment:list"
+) {
+  me {
+    administrator {
+      organizations {
+        id
+        name
+        deployments {
+          id
+          name
+        }
+      }
+    }
+    problem {
+      ... on Problem {
+        __typename
+        message
+      }
+    }
+  }
+}

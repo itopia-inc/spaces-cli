@@ -1,0 +1,20 @@
+query organizationList
+@oclif(
+  description: "List all of your organizations"
+  example: "spaces organization:list"
+) {
+  me {
+    administrator {
+      organizations {
+        id
+        name
+      }
+    }
+    problem {
+      ... on Problem {
+        __typename
+        message
+      }
+    }
+  }
+}

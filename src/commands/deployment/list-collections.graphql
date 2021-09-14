@@ -1,0 +1,22 @@
+query deploymentListCollections($id: ID!, $organizationId: ID!)
+@oclif(
+  description: "List all collections in a deployment"
+  example: "spaces deployment:list-collections --id='abc123DeploymentID' --organizationId='abc123organizationionid'"
+) {
+  deployment(input: { deploymentId: $id, organizationId: $organizationId }) {
+    deployment {
+      id
+      name
+      collections {
+        id
+        name
+      }
+    }
+    problem {
+      ... on Problem {
+        __typename
+        message
+      }
+    }
+  }
+}

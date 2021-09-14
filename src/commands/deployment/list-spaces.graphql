@@ -1,0 +1,26 @@
+query deploymentListSpaces($id: ID!, $organizationId: ID!)
+@oclif(
+  description: "List all spaces in a deployment"
+  example: "spaces deployment:list-spaces --id='abc123DeploymentID' --organizationId='abc123organizationionid'"
+) {
+  deployment(input: { deploymentId: $id, organizationId: $organizationId }) {
+    deployment {
+      id
+      name
+      collections {
+        id
+        name
+        spaces {
+          id
+          name
+        }
+      }
+    }
+    problem {
+      ... on Problem {
+        __typename
+        message
+      }
+    }
+  }
+}
