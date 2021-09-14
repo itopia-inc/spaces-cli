@@ -25,6 +25,13 @@ see https://api.spaces.itopia.com
 - Add end user management commands
   - `collection:add-user`
   - `collection:remove-user`
+- Fork the command generator plugin
+  - to fix the boolean flag bug, and
+  - to support a custom base class
+    - Add a `--json` flag
+      - to switch to JSON-formatted output
+        - (the default should be tabular)
+    - Add a `--token` flag
 - Add tests for generated commands
 - Gracefully handle saved token expiration
 - Per-command authentication via `--token`
