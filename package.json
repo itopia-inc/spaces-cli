@@ -6,7 +6,7 @@
   "bin": {
     "spaces": "./bin/run"
   },
-  "bugs": "https://github.com/itopia/spaces-cli/issues",
+  "bugs": "https://github.com/itopia-inc/spaces-cli/issues",
   "dependencies": {
     "@oclif/command": "^1.8.0",
     "@oclif/config": "^1.17.0",
@@ -50,7 +50,7 @@
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/itopia/spaces-cli",
+  "homepage": "https://github.com/itopia-inc/spaces-cli",
   "keywords": [
     "oclif"
   ],
@@ -84,7 +84,7 @@
   "pkg": {
     "scripts": "./lib/**/*.js"
   },
-  "repository": "itopia/spaces-cli",
+  "repository": "itopia-inc/spaces-cli",
   "scripts": {
     "build": "npm run compile && npm run package",
     "codegen": "graphql-codegen --config codegen.yaml",
