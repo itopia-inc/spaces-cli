@@ -54,7 +54,7 @@ $ npm install -g spaces
 $ spaces COMMAND
 running command...
 $ spaces (-v|--version|version)
-spaces/0.0.0 linux-x64 node-v14.17.5
+spaces/0.1.0 linux-x64 node-v14.17.5
 $ spaces --help [COMMAND]
 USAGE
   $ spaces COMMAND
@@ -72,11 +72,13 @@ USAGE
 - [`spaces collection:delete`](#spaces-collectiondelete)
 - [`spaces collection:list`](#spaces-collectionlist)
 - [`spaces collection:list-spaces`](#spaces-collectionlist-spaces)
+- [`spaces collection:read`](#spaces-collectionread)
 - [`spaces deployment:create`](#spaces-deploymentcreate)
 - [`spaces deployment:delete`](#spaces-deploymentdelete)
 - [`spaces deployment:list`](#spaces-deploymentlist)
 - [`spaces deployment:list-collections`](#spaces-deploymentlist-collections)
 - [`spaces deployment:list-spaces`](#spaces-deploymentlist-spaces)
+- [`spaces deployment:read`](#spaces-deploymentread)
 - [`spaces deployment:update`](#spaces-deploymentupdate)
 - [`spaces help [COMMAND]`](#spaces-help-command)
 - [`spaces login`](#spaces-login)
@@ -88,10 +90,12 @@ USAGE
 - [`spaces organization:list-collections`](#spaces-organizationlist-collections)
 - [`spaces organization:list-deployments`](#spaces-organizationlist-deployments)
 - [`spaces organization:list-spaces`](#spaces-organizationlist-spaces)
+- [`spaces organization:read`](#spaces-organizationread)
 - [`spaces organization:remove-admin`](#spaces-organizationremove-admin)
 - [`spaces organization:update`](#spaces-organizationupdate)
 - [`spaces space:delete`](#spaces-spacedelete)
 - [`spaces space:list`](#spaces-spacelist)
+- [`spaces space:read`](#spaces-spaceread)
 
 ## `spaces collection:delete`
 
@@ -110,7 +114,7 @@ EXAMPLE
   spaces collection:delete --collectionId='abc123CollectionID' --deploymentId='abc123DeploymentID'
 ```
 
-_See code: [src/commands/collection/delete.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.0.0/src/commands/collection/delete.ts)_
+_See code: [src/commands/collection/delete.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/collection/delete.ts)_
 
 ## `spaces collection:list`
 
@@ -127,7 +131,7 @@ EXAMPLE
   spaces collection:list
 ```
 
-_See code: [src/commands/collection/list.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.0.0/src/commands/collection/list.ts)_
+_See code: [src/commands/collection/list.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/collection/list.ts)_
 
 ## `spaces collection:list-spaces`
 
@@ -146,7 +150,26 @@ EXAMPLE
   spaces collection:list-spaces --id='abc123CollectionID' --deploymentId='abc123DeploymentID'
 ```
 
-_See code: [src/commands/collection/list-spaces.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.0.0/src/commands/collection/list-spaces.ts)_
+_See code: [src/commands/collection/list-spaces.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/collection/list-spaces.ts)_
+
+## `spaces collection:read`
+
+Read all properties of a collection
+
+```
+USAGE
+  $ spaces collection:read
+
+OPTIONS
+  -h, --help                   show CLI help
+  --deploymentId=deploymentId  (required)
+  --id=id                      (required)
+
+EXAMPLE
+  spaces collection:read --id='abc123collectionid'
+```
+
+_See code: [src/commands/collection/read.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/collection/read.ts)_
 
 ## `spaces deployment:create`
 
@@ -169,7 +192,7 @@ EXAMPLE
   spaces deployment:create --name='My Deployment' --organizationId='abc123OrganizationID'
 ```
 
-_See code: [src/commands/deployment/create.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.0.0/src/commands/deployment/create.ts)_
+_See code: [src/commands/deployment/create.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/deployment/create.ts)_
 
 ## `spaces deployment:delete`
 
@@ -188,7 +211,7 @@ EXAMPLE
   spaces deployment:delete --id='abc123DeploymentID' --organizationId='abc123OrganizationID'
 ```
 
-_See code: [src/commands/deployment/delete.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.0.0/src/commands/deployment/delete.ts)_
+_See code: [src/commands/deployment/delete.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/deployment/delete.ts)_
 
 ## `spaces deployment:list`
 
@@ -205,7 +228,7 @@ EXAMPLE
   spaces deployment:list
 ```
 
-_See code: [src/commands/deployment/list.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.0.0/src/commands/deployment/list.ts)_
+_See code: [src/commands/deployment/list.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/deployment/list.ts)_
 
 ## `spaces deployment:list-collections`
 
@@ -224,7 +247,7 @@ EXAMPLE
   spaces deployment:list-collections --id='abc123DeploymentID' --organizationId='abc123organizationionid'
 ```
 
-_See code: [src/commands/deployment/list-collections.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.0.0/src/commands/deployment/list-collections.ts)_
+_See code: [src/commands/deployment/list-collections.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/deployment/list-collections.ts)_
 
 ## `spaces deployment:list-spaces`
 
@@ -243,7 +266,26 @@ EXAMPLE
   spaces deployment:list-spaces --id='abc123DeploymentID' --organizationId='abc123organizationionid'
 ```
 
-_See code: [src/commands/deployment/list-spaces.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.0.0/src/commands/deployment/list-spaces.ts)_
+_See code: [src/commands/deployment/list-spaces.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/deployment/list-spaces.ts)_
+
+## `spaces deployment:read`
+
+Read all properties of a deployment
+
+```
+USAGE
+  $ spaces deployment:read
+
+OPTIONS
+  -h, --help                       show CLI help
+  --id=id                          (required)
+  --organizationId=organizationId  (required)
+
+EXAMPLE
+  spaces deployment:read --id='abc123deploymentid'
+```
+
+_See code: [src/commands/deployment/read.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/deployment/read.ts)_
 
 ## `spaces deployment:update`
 
@@ -266,7 +308,7 @@ EXAMPLE
   --managedStorageSizeInGigabytes='200' --name='My Deployment'
 ```
 
-_See code: [src/commands/deployment/update.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.0.0/src/commands/deployment/update.ts)_
+_See code: [src/commands/deployment/update.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/deployment/update.ts)_
 
 ## `spaces help [COMMAND]`
 
@@ -297,7 +339,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/login.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.0.0/src/commands/login.ts)_
+_See code: [src/commands/login.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/login.ts)_
 
 ## `spaces logout`
 
@@ -311,7 +353,7 @@ OPTIONS
   -h, --help  show CLI help
 ```
 
-_See code: [src/commands/logout.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.0.0/src/commands/logout.ts)_
+_See code: [src/commands/logout.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/logout.ts)_
 
 ## `spaces organization:add-admin`
 
@@ -330,7 +372,7 @@ EXAMPLE
   spaces organization:add-admin --email='someone@example.com' --id='abc123OrganizationID'
 ```
 
-_See code: [src/commands/organization/add-admin.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.0.0/src/commands/organization/add-admin.ts)_
+_See code: [src/commands/organization/add-admin.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/organization/add-admin.ts)_
 
 ## `spaces organization:create`
 
@@ -348,7 +390,7 @@ EXAMPLE
   spaces organization:create --name='My Organization'
 ```
 
-_See code: [src/commands/organization/create.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.0.0/src/commands/organization/create.ts)_
+_See code: [src/commands/organization/create.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/organization/create.ts)_
 
 ## `spaces organization:delete`
 
@@ -366,7 +408,7 @@ EXAMPLE
   spaces organization:delete --id='abc123OrganizationID'
 ```
 
-_See code: [src/commands/organization/delete.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.0.0/src/commands/organization/delete.ts)_
+_See code: [src/commands/organization/delete.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/organization/delete.ts)_
 
 ## `spaces organization:list`
 
@@ -383,7 +425,7 @@ EXAMPLE
   spaces organization:list
 ```
 
-_See code: [src/commands/organization/list.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.0.0/src/commands/organization/list.ts)_
+_See code: [src/commands/organization/list.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/organization/list.ts)_
 
 ## `spaces organization:list-collections`
 
@@ -401,7 +443,7 @@ EXAMPLE
   spaces organization:list-collections --id='abc123organizationionid'
 ```
 
-_See code: [src/commands/organization/list-collections.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.0.0/src/commands/organization/list-collections.ts)_
+_See code: [src/commands/organization/list-collections.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/organization/list-collections.ts)_
 
 ## `spaces organization:list-deployments`
 
@@ -419,7 +461,7 @@ EXAMPLE
   spaces organization:list-deployments --id='abc123organizationionid'
 ```
 
-_See code: [src/commands/organization/list-deployments.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.0.0/src/commands/organization/list-deployments.ts)_
+_See code: [src/commands/organization/list-deployments.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/organization/list-deployments.ts)_
 
 ## `spaces organization:list-spaces`
 
@@ -437,7 +479,25 @@ EXAMPLE
   spaces organization:list-spaces --id='abc123organizationionid'
 ```
 
-_See code: [src/commands/organization/list-spaces.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.0.0/src/commands/organization/list-spaces.ts)_
+_See code: [src/commands/organization/list-spaces.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/organization/list-spaces.ts)_
+
+## `spaces organization:read`
+
+Read all properties of an organization
+
+```
+USAGE
+  $ spaces organization:read
+
+OPTIONS
+  -h, --help  show CLI help
+  --id=id     (required)
+
+EXAMPLE
+  spaces organization:read --id='abc123organizationionid'
+```
+
+_See code: [src/commands/organization/read.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/organization/read.ts)_
 
 ## `spaces organization:remove-admin`
 
@@ -456,7 +516,7 @@ EXAMPLE
   spaces organization:remove-admin --email='someone@example.com' --id='abc123OrganizationID'
 ```
 
-_See code: [src/commands/organization/remove-admin.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.0.0/src/commands/organization/remove-admin.ts)_
+_See code: [src/commands/organization/remove-admin.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/organization/remove-admin.ts)_
 
 ## `spaces organization:update`
 
@@ -475,7 +535,7 @@ EXAMPLE
   spaces organization:update --id='abc123OrganizationID' --name='My Organization'
 ```
 
-_See code: [src/commands/organization/update.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.0.0/src/commands/organization/update.ts)_
+_See code: [src/commands/organization/update.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/organization/update.ts)_
 
 ## `spaces space:delete`
 
@@ -497,7 +557,7 @@ EXAMPLE
   --spaceId='abc123SpaceID'
 ```
 
-_See code: [src/commands/space/delete.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.0.0/src/commands/space/delete.ts)_
+_See code: [src/commands/space/delete.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/space/delete.ts)_
 
 ## `spaces space:list`
 
@@ -514,7 +574,27 @@ EXAMPLE
   spaces space:list
 ```
 
-_See code: [src/commands/space/list.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.0.0/src/commands/space/list.ts)_
+_See code: [src/commands/space/list.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/space/list.ts)_
+
+## `spaces space:read`
+
+Read all properties of a space
+
+```
+USAGE
+  $ spaces space:read
+
+OPTIONS
+  -h, --help                   show CLI help
+  --collectionId=collectionId  (required)
+  --deploymentId=deploymentId  (required)
+  --id=id                      (required)
+
+EXAMPLE
+  spaces space:read --id='abc123spaceid'
+```
+
+_See code: [src/commands/space/read.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/space/read.ts)_
 
 <!-- commandsstop -->
 <!-- The comment above is required for `npm run docsgen` -->

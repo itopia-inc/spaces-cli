@@ -1,7 +1,7 @@
 {
   "name": "spaces",
   "description": "A CLI wrapper for the itopia Spaces API",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "author": "Jan Van Bruggen @JanCVanB",
   "bin": {
     "spaces": "./bin/run"
