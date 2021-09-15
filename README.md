@@ -9,60 +9,31 @@ see https://spaces.itopia.com
 For more information about the itopia Spaces API,
 see https://api.spaces.itopia.com
 
-# TODO list
-
-- Add `config` topic
-  - `config:list`
-  - `config:set`
-  - `config:get-value`
-  - `config:configurations:list/create/activate`?
-- Add `image` topic and related commands
-  - `image:create`
-  - `image:read`
-  - `image:update`
-  - `image:delete`
-  - `organization:list-images`
-- Add end user management commands
-  - `collection:add-user`
-  - `collection:remove-user`
-- Fork the command generator plugin
-  - to fix the boolean flag bug, and
-  - to support a custom base class
-    - Add a `--json` flag
-      - to switch to JSON-formatted output
-        - (the default should be tabular)
-    - Add a `--token` flag
-- Fix 404ing GitHub file URLs in README
-- Add tests for generated commands
-- Gracefully handle saved token expiration
-- Per-command authentication via `--token`
-- Improve usage workflow
-  - Replace npm-library-based distribution automation with executable-based
-  - Add README section for developer setup
-  - Add README section for users who want to build from source
-  - Improve README "Usage" section
-- Licensing
-- Open source
-
 # Usage
 
-<!-- The comment below is required for `npm run docsgen` -->
-<!-- usage -->
+1. Download a pre-built executable for your OS, attached to
+   [the latest release](https://github.com/itopia-inc/spaces-cli/releases/tag/v0.1.0).
+1. Save it with the name `spaces` in a convenient directory.
+1. Run `spaces help` and much more!
 
-```sh-session
-$ npm install -g spaces
-$ spaces COMMAND
-running command...
-$ spaces (-v|--version|version)
-spaces/0.1.0 linux-x64 node-v14.17.5
-$ spaces --help [COMMAND]
-USAGE
-  $ spaces COMMAND
-...
+# Feedback
+
+Questions? Requests?
+[Please let us know on GitHub!](https://github.com/itopia-inc/spaces-cli/issues)
+
+# Build from source
+
+If you'd prefer to build your executable from source,
+clone this repo and run the following commands
+(preferably using Node v14.17.5 and npm v6.14.14):
+
+```sh
+$ npm install
+$ npm run build
 ```
 
-<!-- usagestop -->
-<!-- The comment above is required for `npm run docsgen` -->
+You should find freshly-built executables for Linux/MacOS/Windows
+in the repo's `/dist` directory.
 
 # Commands
 
