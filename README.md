@@ -11,23 +11,10 @@ see https://api.spaces.itopia.com
 
 # Usage
 
-<!-- The comment below is required for `npm run docsgen` -->
-<!-- usage -->
-
-```sh-session
-$ npm install -g spaces
-$ spaces COMMAND
-running command...
-$ spaces (-v|--version|version)
-spaces/0.1.0 linux-x64 node-v14.17.5
-$ spaces --help [COMMAND]
-USAGE
-  $ spaces COMMAND
-...
-```
-
-<!-- usagestop -->
-<!-- The comment above is required for `npm run docsgen` -->
+1. Download a pre-built executable for your OS, attached to
+   [the latest release](https://github.com/itopia-inc/spaces-cli/releases/tag/v0.1.0).
+1. Save it with the name `spaces` in a convenient directory.
+1. Run `spaces help` and much more!
 
 # Issues
 
