@@ -9,41 +9,6 @@ see https://spaces.itopia.com
 For more information about the itopia Spaces API,
 see https://api.spaces.itopia.com
 
-# TODO list
-
-- Add `config` topic
-  - `config:list`
-  - `config:set`
-  - `config:get-value`
-  - `config:configurations:list/create/activate`?
-- Add `image` topic and related commands
-  - `image:create`
-  - `image:read`
-  - `image:update`
-  - `image:delete`
-  - `organization:list-images`
-- Add end user management commands
-  - `collection:add-user`
-  - `collection:remove-user`
-- Fork the command generator plugin
-  - to fix the boolean flag bug, and
-  - to support a custom base class
-    - Add a `--json` flag
-      - to switch to JSON-formatted output
-        - (the default should be tabular)
-    - Add a `--token` flag
-- Fix 404ing GitHub file URLs in README
-- Add tests for generated commands
-- Gracefully handle saved token expiration
-- Per-command authentication via `--token`
-- Improve usage workflow
-  - Replace npm-library-based distribution automation with executable-based
-  - Add README section for developer setup
-  - Add README section for users who want to build from source
-  - Improve README "Usage" section
-- Licensing
-- Open source
-
 # Usage
 
 <!-- The comment below is required for `npm run docsgen` -->
