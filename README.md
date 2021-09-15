@@ -16,7 +16,7 @@ see https://api.spaces.itopia.com
 1. Save it with the name `spaces` in a convenient directory.
 1. Run `spaces help` and much more!
 
-# Issues
+# Feedback
 
 Questions? Requests?
 [Please let us know on GitHub!](https://github.com/itopia-inc/spaces-cli/issues)
