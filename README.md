@@ -29,6 +29,11 @@ USAGE
 <!-- usagestop -->
 <!-- The comment above is required for `npm run docsgen` -->
 
+# Issues
+
+Questions? Requests?
+[Please let us know on GitHub!](https://github.com/itopia-inc/spaces-cli/issues)
+
 # Commands
 
 <!-- The comment below is required for `npm run docsgen` -->
