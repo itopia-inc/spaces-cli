@@ -21,6 +21,20 @@ see https://api.spaces.itopia.com
 Questions? Requests?
 [Please let us know on GitHub!](https://github.com/itopia-inc/spaces-cli/issues)
 
+# Build from source
+
+If you'd prefer to build your executable from source,
+clone this repo and run the following commands
+(preferably using Node v14.17.5 and npm v6.14.14):
+
+```sh
+$ npm install
+$ npm run build
+```
+
+You should find freshly-built executables for Linux/MacOS/Windows
+in the repo's `/dist` directory.
+
 # Commands
 
 <!-- The comment below is required for `npm run docsgen` -->
