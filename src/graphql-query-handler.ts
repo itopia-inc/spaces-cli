@@ -23,7 +23,14 @@ const client = new GraphQLClient(API_URL, {
 const handler = async ({ command, query, variables }: QueryHandlerProps) => {
   try {
     const response = await client.request(query, variables);
-    command.log(util.inspect(response, { depth: null }));
+    const output = util.inspect(response, { depth: null });
+    if (output.indexOf("AuthenticationRequiredProblem") > -1) {
+      command.log(
+        "\nIt looks like your authentication token is expired/missing/invalid. Try running the following:\n\n    $ spaces login\n"
+      );
+    } else {
+      command.log(output);
+    }
   } catch (error) {
     command.error(error);
   }
