@@ -24,8 +24,7 @@ Questions? Requests?
 # Build from source
 
 If you'd prefer to build your executable from source,
-clone this repo and run the following commands inside it
-(preferably using Node v14.17.5 and npm v6.14.14):
+clone this repo and run the following commands inside it:
 
 ```sh
 $ npm install
