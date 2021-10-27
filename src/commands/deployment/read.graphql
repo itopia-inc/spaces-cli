@@ -5,12 +5,9 @@ query deploymentRead($id: ID!, $organizationId: ID!)
 ) {
   deployment(input: { deploymentId: $id, organizationId: $organizationId }) {
     deployment {
-      doesManagedStorageAutoGrow
       id
       isGoogleIdentityProviderEnabled
       launcherUrl
-      managedStorageSizeInGigabytes
-      managedStorageTier
       name
       region
       status

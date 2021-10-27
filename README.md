@@ -150,13 +150,11 @@ USAGE
   $ spaces deployment:create
 
 OPTIONS
-  -h, --help                                                     show CLI help
-  --isGoogleIdentityProviderEnabled                              (required)
-  --managedStorageSizeInGigabytes=managedStorageSizeInGigabytes  (required)
-  --managedStorageTier=managedStorageTier                        (required)
-  --name=name                                                    (required)
-  --organizationId=organizationId                                (required)
-  --region=region                                                (required)
+  -h, --help                         show CLI help
+  --isGoogleIdentityProviderEnabled  (required)
+  --name=name                        (required)
+  --organizationId=organizationId    (required)
+  --region=region                    (required)
 
 EXAMPLE
   spaces deployment:create --name='My Deployment' --organizationId='abc123OrganizationID'
@@ -266,16 +264,14 @@ USAGE
   $ spaces deployment:update
 
 OPTIONS
-  -h, --help                                                     show CLI help
-  --id=id                                                        (required)
-  --isGoogleIdentityProviderEnabled                              (required)
-  --managedStorageSizeInGigabytes=managedStorageSizeInGigabytes  (required)
-  --name=name                                                    (required)
-  --organizationId=organizationId                                (required)
+  -h, --help                         show CLI help
+  --id=id                            (required)
+  --isGoogleIdentityProviderEnabled  (required)
+  --name=name                        (required)
+  --organizationId=organizationId    (required)
 
 EXAMPLE
-  spaces deployment:update --id='abc123OrganizationID' --isGoogleIdentityProviderEnabled
-  --managedStorageSizeInGigabytes='200' --name='My Deployment'
+  spaces deployment:update --id='abc123OrganizationID' --isGoogleIdentityProviderEnabled --name='My Deployment'
 ```
 
 _See code: [src/commands/deployment/update.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/deployment/update.ts)_
