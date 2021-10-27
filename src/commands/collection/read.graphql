@@ -1,7 +1,7 @@
 query collectionRead($id: ID!, $deploymentId: ID!)
 @oclif(
   description: "Read all properties of a collection"
-  example: "spaces collection:read --id='abc123collectionid'"
+  example: "spaces collection:read --id='abc123CollectionID' --deploymentId='abc123DeploymentID'"
 ) {
   collection(input: { collectionId: $id, deploymentId: $deploymentId }) {
     collection {

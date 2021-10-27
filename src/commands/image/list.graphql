@@ -1,0 +1,22 @@
+query imageList
+@oclif(description: "List all of your images", example: "spaces image:list") {
+  me {
+    administrator {
+      organizations {
+        id
+        name
+        catalogItems {
+          id
+          name
+          description
+        }
+      }
+    }
+    problem {
+      ... on Problem {
+        __typename
+        message
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+mutation endUserRemove($id: ID!, $deploymentId: ID!, $email: String!)
+@oclif(
+  description: "Remove an end user from a collection (this revokes permission to use the collection's spaces)"
+  example: "spaces collection:remove-end-user --id='abc123CollectionID' --deploymentId='abc123DeploymentID' --emailAddress='developer@example.com'"
+) {
+  endUserRemove(
+    input: {
+      collectionId: $id
+      deploymentId: $deploymentId
+      endUserEmailAddress: $email
+    }
+  ) {
+    problem {
+      ... on Problem {
+        __typename
+        message
+      }
+    }
+  }
+}

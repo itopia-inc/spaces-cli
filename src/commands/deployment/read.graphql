@@ -1,7 +1,7 @@
 query deploymentRead($id: ID!, $organizationId: ID!)
 @oclif(
   description: "Read all properties of a deployment"
-  example: "spaces deployment:read --id='abc123deploymentid'"
+  example: "spaces deployment:read --id='abc123DeploymentID'"
 ) {
   deployment(input: { deploymentId: $id, organizationId: $organizationId }) {
     deployment {

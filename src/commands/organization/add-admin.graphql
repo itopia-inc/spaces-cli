@@ -1,7 +1,7 @@
-mutation organizationAddAdministrator($email: String!, $id: ID!)
+mutation organizationAddAdministrator($id: ID!, $email: String!)
 @oclif(
   description: "Add someone to an organization's list of administrators"
-  example: "spaces organization:add-admin --email='someone@example.com' --id='abc123OrganizationID'"
+  example: "spaces organization:add-admin --id='abc123OrganizationID' --email='someone@example.com'"
 ) {
   organizationAssignOwnerRole(
     input: { assigneeEmailAddress: $email, organizationId: $id }

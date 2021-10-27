@@ -1,0 +1,38 @@
+# TODO: Enable recommended settings updates,
+# either when API subfields are optional or by ejecting to TypeScript.
+mutation imageUpdate(
+  # TODO: This should change to `ID!` in the API.
+  $id: String!
+  $description: String
+  $icon: String
+  # TODO: This should change to `ID!` in the API.
+  $organizationId: String!
+  $status: CatalogItemStatus
+)
+@oclif(
+  description: "Update an image's properties"
+  example: "spaces image:update --id='abc123ImageID' --description='This is a very good image.' --icon='base64imagecontent' --organizationId='abc123OrganizationID' --status=LIVE"
+) {
+  catalogItemUpdate(
+    input: {
+      catalogItemId: $id
+      description: $description
+      icon: $icon
+      organizationId: $organizationId
+      status: $status
+    }
+  ) {
+    catalogItem {
+      description
+      id
+      name
+      status
+    }
+    problem {
+      ... on Problem {
+        __typename
+        message
+      }
+    }
+  }
+}
