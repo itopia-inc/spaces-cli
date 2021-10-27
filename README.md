@@ -37,6 +37,10 @@ in the repo's `/dist/` directory.
 
 # Commands
 
+The following documentation is automatically generated.
+While the examples should be accurate,
+the "See code" hyperlinks do not work.
+
 <!-- The comment below is required for `npm run docsgen` -->
 <!-- commands -->
 
