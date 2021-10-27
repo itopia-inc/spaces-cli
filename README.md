@@ -55,7 +55,6 @@ in the repo's `/dist/` directory.
 - [`spaces login`](#spaces-login)
 - [`spaces logout`](#spaces-logout)
 - [`spaces organization:add-admin`](#spaces-organizationadd-admin)
-- [`spaces organization:create`](#spaces-organizationcreate)
 - [`spaces organization:delete`](#spaces-organizationdelete)
 - [`spaces organization:list`](#spaces-organizationlist)
 - [`spaces organization:list-collections`](#spaces-organizationlist-collections)
@@ -151,13 +150,11 @@ USAGE
   $ spaces deployment:create
 
 OPTIONS
-  -h, --help                                                     show CLI help
-  --isGoogleIdentityProviderEnabled                              (required)
-  --managedStorageSizeInGigabytes=managedStorageSizeInGigabytes  (required)
-  --managedStorageTier=managedStorageTier                        (required)
-  --name=name                                                    (required)
-  --organizationId=organizationId                                (required)
-  --region=region                                                (required)
+  -h, --help                         show CLI help
+  --isGoogleIdentityProviderEnabled  (required)
+  --name=name                        (required)
+  --organizationId=organizationId    (required)
+  --region=region                    (required)
 
 EXAMPLE
   spaces deployment:create --name='My Deployment' --organizationId='abc123OrganizationID'
@@ -267,16 +264,14 @@ USAGE
   $ spaces deployment:update
 
 OPTIONS
-  -h, --help                                                     show CLI help
-  --id=id                                                        (required)
-  --isGoogleIdentityProviderEnabled                              (required)
-  --managedStorageSizeInGigabytes=managedStorageSizeInGigabytes  (required)
-  --name=name                                                    (required)
-  --organizationId=organizationId                                (required)
+  -h, --help                         show CLI help
+  --id=id                            (required)
+  --isGoogleIdentityProviderEnabled  (required)
+  --name=name                        (required)
+  --organizationId=organizationId    (required)
 
 EXAMPLE
-  spaces deployment:update --id='abc123OrganizationID' --isGoogleIdentityProviderEnabled
-  --managedStorageSizeInGigabytes='200' --name='My Deployment'
+  spaces deployment:update --id='abc123OrganizationID' --isGoogleIdentityProviderEnabled --name='My Deployment'
 ```
 
 _See code: [src/commands/deployment/update.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/deployment/update.ts)_
@@ -344,24 +339,6 @@ EXAMPLE
 ```
 
 _See code: [src/commands/organization/add-admin.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/organization/add-admin.ts)_
-
-## `spaces organization:create`
-
-Create a new organization
-
-```
-USAGE
-  $ spaces organization:create
-
-OPTIONS
-  -h, --help   show CLI help
-  --name=name  (required)
-
-EXAMPLE
-  spaces organization:create --name='My Organization'
-```
-
-_See code: [src/commands/organization/create.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.0/src/commands/organization/create.ts)_
 
 ## `spaces organization:delete`
 

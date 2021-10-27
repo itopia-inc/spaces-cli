@@ -8,9 +8,9 @@ import handler from "../../graphql-query-handler";
 import gql from "graphql-tag";
 
 const DeploymentCreateDocument = `
-mutation deploymentCreate($isGoogleIdentityProviderEnabled: Boolean!, $managedStorageSizeInGigabytes: Int!, $managedStorageTier: StorageTier!, $name: String!, $organizationId: ID!, $region: String!) {
+mutation deploymentCreate($isGoogleIdentityProviderEnabled: Boolean!, $name: String!, $organizationId: ID!, $region: String!) {
   deploymentCreate(
-    input: {isGoogleIdentityProviderEnabled: $isGoogleIdentityProviderEnabled, managedStorageSizeInGigabytes: $managedStorageSizeInGigabytes, managedStorageTier: $managedStorageTier, name: $name, organizationId: $organizationId, region: $region}
+    input: {isGoogleIdentityProviderEnabled: $isGoogleIdentityProviderEnabled, name: $name, organizationId: $organizationId, region: $region}
   ) {
     deploymentId
     deploymentStatus
@@ -34,14 +34,6 @@ export default class deploymentCreate extends Command {
     help: flags.help({ char: "h" }),
     isGoogleIdentityProviderEnabled: flags.boolean({
       // multiple: false,
-      required: true,
-    }),
-    managedStorageSizeInGigabytes: flags.integer({
-      multiple: false,
-      required: true,
-    }),
-    managedStorageTier: flags.string({
-      multiple: false,
       required: true,
     }),
     name: flags.string({

@@ -8,9 +8,9 @@ import handler from "../../graphql-query-handler";
 import gql from "graphql-tag";
 
 const DeploymentUpdateDocument = `
-mutation deploymentUpdate($id: ID!, $isGoogleIdentityProviderEnabled: Boolean!, $managedStorageSizeInGigabytes: Int!, $name: String!, $organizationId: ID!) {
+mutation deploymentUpdate($id: ID!, $isGoogleIdentityProviderEnabled: Boolean!, $name: String!, $organizationId: ID!) {
   deploymentUpdate(
-    input: {deploymentId: $id, isGoogleIdentityProviderEnabled: $isGoogleIdentityProviderEnabled, managedStorageSizeInGigabytes: $managedStorageSizeInGigabytes, name: $name, organizationId: $organizationId}
+    input: {deploymentId: $id, isGoogleIdentityProviderEnabled: $isGoogleIdentityProviderEnabled, name: $name, organizationId: $organizationId}
   ) {
     problem {
       ... on Problem {
@@ -23,7 +23,6 @@ mutation deploymentUpdate($id: ID!, $isGoogleIdentityProviderEnabled: Boolean!, 
         deployment {
           id
           isGoogleIdentityProviderEnabled
-          managedStorageSizeInGigabytes
           name
         }
       }
@@ -35,7 +34,7 @@ export default class deploymentUpdate extends Command {
   static description = "Update one or more of a deployment's properties";
 
   static examples: string[] = [
-    "spaces deployment:update --id='abc123OrganizationID' --isGoogleIdentityProviderEnabled --managedStorageSizeInGigabytes='200' --name='My Deployment'",
+    "spaces deployment:update --id='abc123OrganizationID' --isGoogleIdentityProviderEnabled --name='My Deployment'",
   ];
 
   static flags = {
@@ -46,10 +45,6 @@ export default class deploymentUpdate extends Command {
     }),
     isGoogleIdentityProviderEnabled: flags.boolean({
       // multiple: false,
-      required: true,
-    }),
-    managedStorageSizeInGigabytes: flags.integer({
-      multiple: false,
       required: true,
     }),
     name: flags.string({
