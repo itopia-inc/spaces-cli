@@ -40,10 +40,12 @@ in the repo's `/dist/` directory.
 <!-- The comment below is required for `npm run docsgen` -->
 <!-- commands -->
 
+- [`spaces collection:add-end-user`](#spaces-collectionadd-end-user)
 - [`spaces collection:delete`](#spaces-collectiondelete)
 - [`spaces collection:list`](#spaces-collectionlist)
 - [`spaces collection:list-spaces`](#spaces-collectionlist-spaces)
 - [`spaces collection:read`](#spaces-collectionread)
+- [`spaces collection:remove-end-user`](#spaces-collectionremove-end-user)
 - [`spaces deployment:create`](#spaces-deploymentcreate)
 - [`spaces deployment:delete`](#spaces-deploymentdelete)
 - [`spaces deployment:list`](#spaces-deploymentlist)
@@ -66,6 +68,28 @@ in the repo's `/dist/` directory.
 - [`spaces space:delete`](#spaces-spacedelete)
 - [`spaces space:list`](#spaces-spacelist)
 - [`spaces space:read`](#spaces-spaceread)
+
+## `spaces collection:add-end-user`
+
+Add an end user to a collection (this grants permission to use the collection's spaces)
+
+```
+USAGE
+  $ spaces collection:add-end-user
+
+OPTIONS
+  -h, --help                   show CLI help
+  --collectionId=collectionId  (required)
+  --deploymentId=deploymentId  (required)
+  --email=email                (required)
+  --notify                     (required)
+
+EXAMPLE
+  spaces collection:end-user-add --id='abc123CollectionID' --deploymentId='abc123DeploymentID'
+  --emailAddress='developer@example.com' --notify
+```
+
+_See code: [src/commands/collection/add-end-user.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.1/src/commands/collection/add-end-user.ts)_
 
 ## `spaces collection:delete`
 
@@ -136,10 +160,31 @@ OPTIONS
   --id=id                      (required)
 
 EXAMPLE
-  spaces collection:read --id='abc123collectionid'
+  spaces collection:read --id='abc123CollectionID' --deploymentId='abc123DeploymentID'
 ```
 
 _See code: [src/commands/collection/read.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.1/src/commands/collection/read.ts)_
+
+## `spaces collection:remove-end-user`
+
+Remove an end user from a collection (this revokes permission to use the collection's spaces)
+
+```
+USAGE
+  $ spaces collection:remove-end-user
+
+OPTIONS
+  -h, --help                   show CLI help
+  --deploymentId=deploymentId  (required)
+  --email=email                (required)
+  --id=id                      (required)
+
+EXAMPLE
+  spaces collection:remove-end-user --id='abc123CollectionID' --deploymentId='abc123DeploymentID'
+  --emailAddress='developer@example.com'
+```
+
+_See code: [src/commands/collection/remove-end-user.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.1/src/commands/collection/remove-end-user.ts)_
 
 ## `spaces deployment:create`
 
