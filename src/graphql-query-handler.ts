@@ -14,7 +14,10 @@ interface QueryHandlerProps {
 }
 
 const client = new GraphQLClient(API_URL, {
-  headers: { Authorization: `Bearer ${config.get("token")}` },
+  headers: {
+    Authorization: `Bearer ${config.get("token")}`,
+    "User-Agent": "spaces-cli",
+  },
 });
 
 const handler = async ({ command, query, variables }: QueryHandlerProps) => {
