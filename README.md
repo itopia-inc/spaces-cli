@@ -380,7 +380,7 @@ OPTIONS
   --id=id        (required)
 
 EXAMPLE
-  spaces organization:add-admin --email='someone@example.com' --id='abc123OrganizationID'
+  spaces organization:add-admin --id='abc123OrganizationID' --email='someone@example.com'
 ```
 
 _See code: [src/commands/organization/add-admin.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.1/src/commands/organization/add-admin.ts)_
@@ -506,7 +506,7 @@ OPTIONS
   --id=id        (required)
 
 EXAMPLE
-  spaces organization:remove-admin --email='someone@example.com' --id='abc123OrganizationID'
+  spaces organization:remove-admin --id='abc123OrganizationID' --email='someone@example.com'
 ```
 
 _See code: [src/commands/organization/remove-admin.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.1/src/commands/organization/remove-admin.ts)_
@@ -584,7 +584,7 @@ OPTIONS
   --id=id                      (required)
 
 EXAMPLE
-  spaces space:read --id='abc123SpaceID'
+  spaces space:read --id='abc123SpaceID' --collectionId='abc123CollectionID' --deploymentId='abc123DeploymentID'
 ```
 
 _See code: [src/commands/space/read.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.1/src/commands/space/read.ts)_
