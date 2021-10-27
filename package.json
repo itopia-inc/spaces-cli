@@ -90,14 +90,16 @@
     "codegen": "graphql-codegen --config codegen.yaml",
     "compile": "rm -rf lib && tsc -b && rm tsconfig.tsbuildinfo",
     "docsgen": "oclif-dev readme",
-    "format": "prettier --write .",
+    "e2e": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
+    "format": "prettier --ignore-path .gitignore --write .",
+    "format-and-error-if-any-warnings": "warnings=$(npm run format -- --check 2>&1 >/dev/null) && if [ ! -z \"$warnings\" ]; then echo \"$warnings\" && (exit 1); fi;",
+    "lint": "eslint . --config=.eslintrc --ext=.ts",
+    "lint-and-error-if-any-warnings": "eslint . --config=.eslintrc --ext=.ts --max-warnings=0",
     "package": "pkg . --out-path dist",
-    "posttest": "eslint . --ext .ts --config .eslintrc",
     "postdocsgen": "npm run format",
     "prebuild": "npm run codegen",
     "prepare": "husky install",
-    "pretest": "npm run codegen",
-    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\""
+    "test": "npm run format-and-error-if-any-warnings && npm run lint-and-error-if-any-warnings && npm run build && npm run e2e"
   },
   "types": "lib/index.d.ts"
 }
