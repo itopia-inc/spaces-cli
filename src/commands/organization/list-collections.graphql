@@ -1,7 +1,7 @@
 query organizationListCollections($id: ID!)
 @oclif(
   description: "List all collections in an organization"
-  example: "spaces organization:list-collections --id='abc123organizationionid'"
+  example: "spaces organization:list-collections --id='abc123OrganizationID'"
 ) {
   organization(input: { id: $id }) {
     organization {

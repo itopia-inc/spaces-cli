@@ -257,7 +257,7 @@ OPTIONS
   --organizationId=organizationId  (required)
 
 EXAMPLE
-  spaces deployment:list-collections --id='abc123DeploymentID' --organizationId='abc123organizationionid'
+  spaces deployment:list-collections --id='abc123DeploymentID' --organizationId='abc123OrganizationID'
 ```
 
 _See code: [src/commands/deployment/list-collections.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.1/src/commands/deployment/list-collections.ts)_
@@ -276,7 +276,7 @@ OPTIONS
   --organizationId=organizationId  (required)
 
 EXAMPLE
-  spaces deployment:list-spaces --id='abc123DeploymentID' --organizationId='abc123organizationionid'
+  spaces deployment:list-spaces --id='abc123DeploymentID' --organizationId='abc123OrganizationID'
 ```
 
 _See code: [src/commands/deployment/list-spaces.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.1/src/commands/deployment/list-spaces.ts)_
@@ -295,7 +295,7 @@ OPTIONS
   --organizationId=organizationId  (required)
 
 EXAMPLE
-  spaces deployment:read --id='abc123deploymentid'
+  spaces deployment:read --id='abc123DeploymentID'
 ```
 
 _See code: [src/commands/deployment/read.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.1/src/commands/deployment/read.ts)_
@@ -433,7 +433,7 @@ OPTIONS
   --id=id     (required)
 
 EXAMPLE
-  spaces organization:list-collections --id='abc123organizationionid'
+  spaces organization:list-collections --id='abc123OrganizationID'
 ```
 
 _See code: [src/commands/organization/list-collections.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.1/src/commands/organization/list-collections.ts)_
@@ -451,7 +451,7 @@ OPTIONS
   --id=id     (required)
 
 EXAMPLE
-  spaces organization:list-deployments --id='abc123organizationionid'
+  spaces organization:list-deployments --id='abc123OrganizationID'
 ```
 
 _See code: [src/commands/organization/list-deployments.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.1/src/commands/organization/list-deployments.ts)_
@@ -469,7 +469,7 @@ OPTIONS
   --id=id     (required)
 
 EXAMPLE
-  spaces organization:list-spaces --id='abc123organizationionid'
+  spaces organization:list-spaces --id='abc123OrganizationID'
 ```
 
 _See code: [src/commands/organization/list-spaces.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.1/src/commands/organization/list-spaces.ts)_
@@ -487,7 +487,7 @@ OPTIONS
   --id=id     (required)
 
 EXAMPLE
-  spaces organization:read --id='abc123organizationionid'
+  spaces organization:read --id='abc123OrganizationID'
 ```
 
 _See code: [src/commands/organization/read.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.1/src/commands/organization/read.ts)_
@@ -584,7 +584,7 @@ OPTIONS
   --id=id                      (required)
 
 EXAMPLE
-  spaces space:read --id='abc123spaceid'
+  spaces space:read --id='abc123SpaceID'
 ```
 
 _See code: [src/commands/space/read.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.1/src/commands/space/read.ts)_

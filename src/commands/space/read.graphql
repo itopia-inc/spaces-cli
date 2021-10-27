@@ -1,7 +1,7 @@
 query spaceRead($collectionId: ID!, $deploymentId: ID!, $id: ID!)
 @oclif(
   description: "Read all properties of a space"
-  example: "spaces space:read --id='abc123spaceid'"
+  example: "spaces space:read --id='abc123SpaceID'"
 ) {
   space(
     input: {

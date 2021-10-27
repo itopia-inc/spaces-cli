@@ -1,7 +1,7 @@
 query organizationListDeployments($id: ID!)
 @oclif(
   description: "List all deployments in an organization"
-  example: "spaces organization:list-deployments --id='abc123organizationionid'"
+  example: "spaces organization:list-deployments --id='abc123OrganizationID'"
 ) {
   organization(input: { id: $id }) {
     organization {

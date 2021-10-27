@@ -1,7 +1,7 @@
 query organizationRead($id: ID!)
 @oclif(
   description: "Read all properties of an organization"
-  example: "spaces organization:read --id='abc123organizationionid'"
+  example: "spaces organization:read --id='abc123OrganizationID'"
 ) {
   organization(input: { id: $id }) {
     organization {
