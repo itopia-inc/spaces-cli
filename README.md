@@ -54,6 +54,11 @@ in the repo's `/dist/` directory.
 - [`spaces deployment:read`](#spaces-deploymentread)
 - [`spaces deployment:update`](#spaces-deploymentupdate)
 - [`spaces help [COMMAND]`](#spaces-help-command)
+- [`spaces image:create`](#spaces-imagecreate)
+- [`spaces image:delete`](#spaces-imagedelete)
+- [`spaces image:list`](#spaces-imagelist)
+- [`spaces image:read`](#spaces-imageread)
+- [`spaces image:update`](#spaces-imageupdate)
 - [`spaces login`](#spaces-login)
 - [`spaces logout`](#spaces-logout)
 - [`spaces organization:add-admin`](#spaces-organizationadd-admin)
@@ -337,6 +342,119 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.3/src/commands/help.ts)_
+
+## `spaces image:create`
+
+Create a new image
+
+```
+USAGE
+  $ spaces image:create
+
+OPTIONS
+  -h, --help                                                                                             show CLI help
+  --description=description
+  --icon=icon                                                                                            (required)
+  --imageRepositoryUrl=imageRepositoryUrl                                                                (required)
+  --imageTag=imageTag                                                                                    (required)
+  --name=name                                                                                            (required)
+  --organizationId=organizationId                                                                        (required)
+  --recommendedDockerPersistentStorageSizeinGigabytes=recommendedDockerPersistentStorageSizeinGigabytes  (required)
+  --recommendedEnableDocker
+  --recommendedEnableInboundClipboardRedirection
+  --recommendedEnableOutboundClipboardRedirection
+  --recommendedEnablePDFPrinter
+  --recommendedEnablePersistentHome
+  --recommendedInactivityTerminationDelayInMinutes=recommendedInactivityTerminationDelayInMinutes        (required)
+  --recommendedPersistentHomeSizeInGigabytes=recommendedPersistentHomeSizeInGigabytes                    (required)
+  --recommendedSize=recommendedSize                                                                      (required)
+  --status=status                                                                                        (required)
+
+EXAMPLE
+  spaces image:create --description='This is a very good image.' --icon='base64imagecontent'
+  --imageRepositoryUrl='https://my.registry.com/my/image' --imageTag='my.version'
+  --organizationId='abc123OrganizationID' --status=LIVE
+```
+
+_See code: [src/commands/image/create.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.1/src/commands/image/create.ts)_
+
+## `spaces image:delete`
+
+Delete an image
+
+```
+USAGE
+  $ spaces image:delete
+
+OPTIONS
+  -h, --help                       show CLI help
+  --id=id                          (required)
+  --organizationId=organizationId  (required)
+
+EXAMPLE
+  spaces image:delete --id='abc123ImageID' --organizationId='abc123OrganizationID'
+```
+
+_See code: [src/commands/image/delete.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.1/src/commands/image/delete.ts)_
+
+## `spaces image:list`
+
+List all of your images
+
+```
+USAGE
+  $ spaces image:list
+
+OPTIONS
+  -h, --help  show CLI help
+
+EXAMPLE
+  spaces image:list
+```
+
+_See code: [src/commands/image/list.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.1/src/commands/image/list.ts)_
+
+## `spaces image:read`
+
+Read all properties of an image
+
+```
+USAGE
+  $ spaces image:read
+
+OPTIONS
+  -h, --help                       show CLI help
+  --id=id                          (required)
+  --organizationId=organizationId  (required)
+
+EXAMPLE
+  spaces image:read --id='abc123ImageID' --organizationId='abc123OrganizationID'
+```
+
+_See code: [src/commands/image/read.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.1/src/commands/image/read.ts)_
+
+## `spaces image:update`
+
+Update an image's properties
+
+```
+USAGE
+  $ spaces image:update
+
+OPTIONS
+  -h, --help                       show CLI help
+  --description=description
+  --icon=icon
+  --id=id                          (required)
+  --organizationId=organizationId  (required)
+  --status=status
+
+EXAMPLE
+  spaces image:update --id='abc123ImageID' --description='This is a very good image.' --icon='base64imagecontent'
+  --organizationId='abc123OrganizationID' --status=LIVE
+```
+
+_See code: [src/commands/image/update.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.1.1/src/commands/image/update.ts)_
 
 ## `spaces login`
 

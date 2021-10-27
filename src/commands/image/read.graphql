@@ -1,0 +1,33 @@
+query imageRead($id: ID!, $organizationId: ID!)
+@oclif(
+  description: "Read all properties of an image"
+  example: "spaces image:read --id='abc123ImageID' --organizationId='abc123OrganizationID'"
+) {
+  catalogItem(input: { catalogItemId: $id, organizationId: $organizationId }) {
+    catalogItem {
+      id
+      description
+      imageRepositoryUrl
+      imageTag
+      name
+      status
+      recommendedSettings {
+        dockerPersistentStorageSizeinGigabytes
+        enableDocker
+        enableInboundClipboardRedirection
+        enableOutboundClipboardRedirection
+        enablePDFPrinter
+        enablePersistentHome
+        inactivityTerminationDelayInMinutes
+        persistentHomeSizeInGigabytes
+        size
+      }
+    }
+    problem {
+      ... on Problem {
+        __typename
+        message
+      }
+    }
+  }
+}
