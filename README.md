@@ -24,7 +24,8 @@ Questions? Requests?
 # Build from source
 
 If you'd prefer to build your executable from source,
-clone this repo and run the following commands inside it:
+first ensure that you have Node.js v14 and npm v7+ installed.
+Then, clone this repo and run the following commands inside it:
 
 ```sh
 $ npm install
