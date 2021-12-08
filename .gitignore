@@ -12,6 +12,8 @@ src/commands/**/*.ts
 !src/commands/collection/add-end-user.ts
 !src/commands/deployment/create.ts
 !src/commands/deployment/update.ts
+!src/commands/image/create.ts
+!src/commands/image/update.ts
 !src/commands/space/delete.ts
 !src/commands/login.ts
 !src/commands/logout.ts

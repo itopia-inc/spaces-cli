@@ -195,27 +195,6 @@ EXAMPLE
 
 _See code: [src/commands/collection/remove-end-user.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.2.0/src/commands/collection/remove-end-user.ts)_
 
-## `spaces collection:remove-end-user`
-
-Remove an end user from a collection (this revokes permission to use the collection's spaces)
-
-```
-USAGE
-  $ spaces collection:remove-end-user
-
-OPTIONS
-  -h, --help                   show CLI help
-  --deploymentId=deploymentId  (required)
-  --email=email                (required)
-  --id=id                      (required)
-
-EXAMPLE
-  spaces collection:remove-end-user --id='abc123CollectionID' --deploymentId='abc123DeploymentID'
-  --emailAddress='developer@example.com'
-```
-
-_See code: [src/commands/collection/remove-end-user.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.2.0/src/commands/collection/remove-end-user.ts)_
-
 ## `spaces deployment:create`
 
 Create a new deployment
@@ -378,21 +357,21 @@ USAGE
 
 OPTIONS
   -h, --help                                                                                             show CLI help
-  --description=description
+  --description=description                                                                              (required)
   --icon=icon                                                                                            (required)
   --imageRepositoryUrl=imageRepositoryUrl                                                                (required)
   --imageTag=imageTag                                                                                    (required)
   --name=name                                                                                            (required)
   --organizationId=organizationId                                                                        (required)
-  --recommendedDockerPersistentStorageSizeinGigabytes=recommendedDockerPersistentStorageSizeinGigabytes  (required)
+  --recommendedContainerSize=recommendedContainerSize                                                    (required)
+  --recommendedDockerPersistentStorageSizeInGigabytes=recommendedDockerPersistentStorageSizeInGigabytes  (required)
   --recommendedEnableDocker
   --recommendedEnableInboundClipboardRedirection
   --recommendedEnableOutboundClipboardRedirection
-  --recommendedEnablePDFPrinter
+  --recommendedEnablePdfPrinter
   --recommendedEnablePersistentHome
   --recommendedInactivityTerminationDelayInMinutes=recommendedInactivityTerminationDelayInMinutes        (required)
   --recommendedPersistentHomeSizeInGigabytes=recommendedPersistentHomeSizeInGigabytes                    (required)
-  --recommendedSize=recommendedSize                                                                      (required)
   --status=status                                                                                        (required)
 
 EXAMPLE
@@ -471,6 +450,7 @@ OPTIONS
   --description=description
   --icon=icon
   --id=id                          (required)
+  --isPublic
   --organizationId=organizationId  (required)
   --status=status
 
