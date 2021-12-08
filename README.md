@@ -70,6 +70,7 @@ the "See code" hyperlinks do not work.
 - [`spaces organization:list`](#spaces-organizationlist)
 - [`spaces organization:list-collections`](#spaces-organizationlist-collections)
 - [`spaces organization:list-deployments`](#spaces-organizationlist-deployments)
+- [`spaces organization:list-images`](#spaces-organizationlist-images)
 - [`spaces organization:list-spaces`](#spaces-organizationlist-spaces)
 - [`spaces organization:read`](#spaces-organizationread)
 - [`spaces organization:remove-admin`](#spaces-organizationremove-admin)
@@ -578,6 +579,24 @@ EXAMPLE
 ```
 
 _See code: [src/commands/organization/list-deployments.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.2.0/src/commands/organization/list-deployments.ts)_
+
+## `spaces organization:list-images`
+
+List all images in an organization
+
+```
+USAGE
+  $ spaces organization:list-images
+
+OPTIONS
+  -h, --help  show CLI help
+  --id=id     (required)
+
+EXAMPLE
+  spaces organization:list-images --id='abc123OrganizationID'
+```
+
+_See code: [src/commands/organization/list-images.ts](https://github.com/itopia-inc/spaces-cli/blob/v0.2.0/src/commands/organization/list-images.ts)_
 
 ## `spaces organization:list-spaces`
 

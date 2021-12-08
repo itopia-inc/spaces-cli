@@ -1,0 +1,23 @@
+query organizationListImages($id: ID!)
+@oclif(
+  description: "List all images in an organization"
+  example: "spaces organization:list-images --id='abc123OrganizationID'"
+) {
+  organization(input: { id: $id }) {
+    organization {
+      id
+      name
+      catalogItems {
+        id
+        name
+        description
+      }
+    }
+    problem {
+      ... on Problem {
+        __typename
+        message
+      }
+    }
+  }
+}
