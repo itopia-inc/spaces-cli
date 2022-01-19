@@ -1,4 +1,4 @@
-# itopia Spaces CLI
+# Official CLI for [itopia Spaces](https://itopiaspaces.com)
 
 An [oclif](https://oclif.io)-based CLI wrapper
 for [the itopia Spaces API](https://api.spaces.itopia.com)
