@@ -9,8 +9,10 @@ query deploymentRead($id: ID!, $organizationId: ID!)
       isGoogleIdentityProviderEnabled
       launcherUrl
       name
-      region
-      status
+      defaultClusterConfiguration {
+        location
+        status
+      }
     }
     problem {
       ... on Problem {

@@ -1,7 +1,7 @@
 query imageList
 @oclif(description: "List all of your images", example: "spaces image:list") {
   me {
-    administrator {
+    userAccount {
       organizations {
         id
         name

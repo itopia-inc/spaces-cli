@@ -4,7 +4,7 @@ query deploymentList
   example: "spaces deployment:list"
 ) {
   me {
-    administrator {
+    userAccount {
       organizations {
         id
         name
