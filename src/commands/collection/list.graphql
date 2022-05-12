@@ -4,7 +4,7 @@ query collectionList
   example: "spaces collection:list"
 ) {
   me {
-    administrator {
+    userAccount {
       organizations {
         id
         name

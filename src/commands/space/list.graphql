@@ -1,7 +1,7 @@
 query spaceList
 @oclif(description: "List all of your spaces", example: "spaces space:list") {
   me {
-    administrator {
+    userAccount {
       organizations {
         id
         name
