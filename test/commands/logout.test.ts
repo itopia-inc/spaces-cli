@@ -9,12 +9,13 @@ describe("logout", () => {
     .command(["logout"])
     .it("runs", async (ctx) => {
       await cli.done();
-      expect(ctx.stdout).to.contain(`
+      expect(ctx.stdout).to.equal(`
 Success!
 Authentication token cleared from configuration file.
 See configuration file here: ${config.path}
 
 Future requests will be unauthenticated by default.
+
 `);
     });
 
@@ -24,12 +25,13 @@ Future requests will be unauthenticated by default.
     .command(["logout"])
     .it("clears the saved token", async (ctx) => {
       await cli.done();
-      expect(ctx.stdout).to.contain(`
+      expect(ctx.stdout).to.equal(`
 Success!
 Authentication token cleared from configuration file.
 See configuration file here: ${config.path}
 
 Future requests will be unauthenticated by default.
+
 `);
       expect(config.get("token")).to.equal("");
     });
