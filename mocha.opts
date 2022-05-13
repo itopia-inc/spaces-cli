@@ -1,0 +1,6 @@
+--forbid-only src/**/*.test.ts
+--recursive
+--reporter spec
+--require ts-node/register
+--timeout 5000
+--watch-extensions ts

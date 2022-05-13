@@ -14,9 +14,12 @@ src/commands/**/*.ts
 !src/commands/deployment/update.ts
 !src/commands/image/create.ts
 !src/commands/image/update.ts
+!src/commands/organization/list.test.ts
 !src/commands/space/delete.ts
 !src/commands/login.ts
+!src/commands/login.test.ts
 !src/commands/logout.ts
+!src/commands/logout.test.ts
 src/graphql-types.ts
 
 # IDE settings

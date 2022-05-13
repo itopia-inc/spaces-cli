@@ -1,7 +1,7 @@
 import { expect, test } from "@oclif/test";
 import cli from "cli-ux";
 
-import config from "../../src/config";
+import config from "../config";
 
 describe("logout", () => {
   test
