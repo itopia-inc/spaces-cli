@@ -1,8 +1,5 @@
-import * as Types from "../../graphql-types";
-
 import { Command, flags } from "@oclif/command";
 import handler from "../../graphql-query-handler";
-import gql from "graphql-tag";
 
 const OrganizationRemoveAdministratorDocument = `
 mutation organizationRemoveAdministrator($id: ID!, $email: String!) {
@@ -18,7 +15,7 @@ mutation organizationRemoveAdministrator($id: ID!, $email: String!) {
   }
 }`;
 
-export default class organizationRemoveAdministrator extends Command {
+export default class OrganizationRemoveAdministrator extends Command {
   static description =
     "Remove someone from an organization's list of administrators";
 
@@ -39,7 +36,7 @@ export default class organizationRemoveAdministrator extends Command {
   };
 
   async run() {
-    const { flags } = this.parse(organizationRemoveAdministrator);
+    const { flags } = this.parse(OrganizationRemoveAdministrator);
     await handler({
       command: this,
       query: OrganizationRemoveAdministratorDocument,

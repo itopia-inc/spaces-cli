@@ -1,8 +1,5 @@
-import * as Types from "../../graphql-types";
-
 import { Command, flags } from "@oclif/command";
 import handler from "../../graphql-query-handler";
-import gql from "graphql-tag";
 
 const DeploymentDeleteDocument = `
 mutation deploymentDelete($id: ID!, $organizationId: ID!) {
@@ -16,7 +13,7 @@ mutation deploymentDelete($id: ID!, $organizationId: ID!) {
   }
 }`;
 
-export default class deploymentDelete extends Command {
+export default class DeploymentDelete extends Command {
   static description = "Delete a deployment";
 
   static examples: string[] = [
@@ -36,7 +33,7 @@ export default class deploymentDelete extends Command {
   };
 
   async run() {
-    const { flags } = this.parse(deploymentDelete);
+    const { flags } = this.parse(DeploymentDelete);
     await handler({
       command: this,
       query: DeploymentDeleteDocument,

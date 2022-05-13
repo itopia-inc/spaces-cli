@@ -1,8 +1,5 @@
-import * as Types from "../../graphql-types";
-
 import { Command, flags } from "@oclif/command";
 import handler from "../../graphql-query-handler";
-import gql from "graphql-tag";
 
 const EndUserRemoveDocument = `
 mutation endUserRemove($id: ID!, $deploymentId: ID!, $email: String!) {
@@ -18,7 +15,7 @@ mutation endUserRemove($id: ID!, $deploymentId: ID!, $email: String!) {
   }
 }`;
 
-export default class endUserRemove extends Command {
+export default class EndUserRemove extends Command {
   static description =
     "Remove an end user from a collection (this revokes permission to use the collection's spaces)";
 
@@ -43,7 +40,7 @@ export default class endUserRemove extends Command {
   };
 
   async run() {
-    const { flags } = this.parse(endUserRemove);
+    const { flags } = this.parse(EndUserRemove);
     await handler({
       command: this,
       query: EndUserRemoveDocument,

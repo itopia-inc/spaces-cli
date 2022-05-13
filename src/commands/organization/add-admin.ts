@@ -1,8 +1,5 @@
-import * as Types from "../../graphql-types";
-
 import { Command, flags } from "@oclif/command";
 import handler from "../../graphql-query-handler";
-import gql from "graphql-tag";
 
 const OrganizationAddAdministratorDocument = `
 mutation organizationAddAdministrator($id: ID!, $email: String!) {
@@ -18,7 +15,7 @@ mutation organizationAddAdministrator($id: ID!, $email: String!) {
   }
 }`;
 
-export default class organizationAddAdministrator extends Command {
+export default class OrganizationAddAdministrator extends Command {
   static description =
     "Add someone to an organization's list of administrators";
 
@@ -39,7 +36,7 @@ export default class organizationAddAdministrator extends Command {
   };
 
   async run() {
-    const { flags } = this.parse(organizationAddAdministrator);
+    const { flags } = this.parse(OrganizationAddAdministrator);
     await handler({
       command: this,
       query: OrganizationAddAdministratorDocument,

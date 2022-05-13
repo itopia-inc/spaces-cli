@@ -22,7 +22,7 @@ mutation imageUpdate($id: String!, $description: String, $icon: String, $isPubli
   }
 }`;
 
-export default class imageUpdate extends Command {
+export default class ImageUpdate extends Command {
   static description = "Update an image's properties";
 
   static examples: string[] = [
@@ -58,7 +58,7 @@ export default class imageUpdate extends Command {
   };
 
   async run() {
-    const { flags } = this.parse(imageUpdate);
+    const { flags } = this.parse(ImageUpdate);
     await handler({
       command: this,
       query: ImageUpdateDocument,

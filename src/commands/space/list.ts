@@ -1,8 +1,5 @@
-import * as Types from "../../graphql-types";
-
 import { Command, flags } from "@oclif/command";
 import handler from "../../graphql-query-handler";
-import gql from "graphql-tag";
 
 const SpaceListDocument = `
 query spaceList {
@@ -34,7 +31,7 @@ query spaceList {
   }
 }`;
 
-export default class spaceList extends Command {
+export default class SpaceList extends Command {
   static description = "List all of your spaces";
 
   static examples: string[] = ["spaces space:list"];
@@ -44,7 +41,7 @@ export default class spaceList extends Command {
   };
 
   async run() {
-    const { flags } = this.parse(spaceList);
+    const { flags } = this.parse(SpaceList);
     await handler({
       command: this,
       query: SpaceListDocument,

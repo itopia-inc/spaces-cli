@@ -1,8 +1,5 @@
-import * as Types from "../../graphql-types";
-
 import { Command, flags } from "@oclif/command";
 import handler from "../../graphql-query-handler";
-import gql from "graphql-tag";
 
 const DeploymentListDocument = `
 query deploymentList {
@@ -26,7 +23,7 @@ query deploymentList {
   }
 }`;
 
-export default class deploymentList extends Command {
+export default class DeploymentList extends Command {
   static description = "List all of your deployments";
 
   static examples: string[] = ["spaces deployment:list"];
@@ -36,7 +33,7 @@ export default class deploymentList extends Command {
   };
 
   async run() {
-    const { flags } = this.parse(deploymentList);
+    const { flags } = this.parse(DeploymentList);
     await handler({
       command: this,
       query: DeploymentListDocument,

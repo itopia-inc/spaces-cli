@@ -1,8 +1,5 @@
-import * as Types from "../../graphql-types";
-
 import { Command, flags } from "@oclif/command";
 import handler from "../../graphql-query-handler";
-import gql from "graphql-tag";
 
 const DeploymentReadDocument = `
 query deploymentRead($id: ID!, $organizationId: ID!) {
@@ -26,7 +23,7 @@ query deploymentRead($id: ID!, $organizationId: ID!) {
   }
 }`;
 
-export default class deploymentRead extends Command {
+export default class DeploymentRead extends Command {
   static description = "Read all properties of a deployment";
 
   static examples: string[] = [
@@ -46,7 +43,7 @@ export default class deploymentRead extends Command {
   };
 
   async run() {
-    const { flags } = this.parse(deploymentRead);
+    const { flags } = this.parse(DeploymentRead);
     await handler({
       command: this,
       query: DeploymentReadDocument,

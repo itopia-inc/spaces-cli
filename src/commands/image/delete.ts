@@ -1,8 +1,5 @@
-import * as Types from "../../graphql-types";
-
 import { Command, flags } from "@oclif/command";
 import handler from "../../graphql-query-handler";
-import gql from "graphql-tag";
 
 const ImageDeleteDocument = `
 mutation imageDelete($id: String!, $organizationId: String!) {
@@ -16,7 +13,7 @@ mutation imageDelete($id: String!, $organizationId: String!) {
   }
 }`;
 
-export default class imageDelete extends Command {
+export default class ImageDelete extends Command {
   static description = "Delete an image";
 
   static examples: string[] = [
@@ -36,7 +33,7 @@ export default class imageDelete extends Command {
   };
 
   async run() {
-    const { flags } = this.parse(imageDelete);
+    const { flags } = this.parse(ImageDelete);
     await handler({
       command: this,
       query: ImageDeleteDocument,

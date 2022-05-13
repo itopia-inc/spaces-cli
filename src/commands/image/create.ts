@@ -21,7 +21,7 @@ mutation imageCreate($description: String!, $icon: String!, $imageRepositoryUrl:
   }
 }`;
 
-export default class imageCreate extends Command {
+export default class ImageCreate extends Command {
   static description = "Create a new image";
 
   static examples: string[] = [
@@ -97,7 +97,7 @@ export default class imageCreate extends Command {
   };
 
   async run() {
-    const { flags } = this.parse(imageCreate);
+    const { flags } = this.parse(ImageCreate);
     await handler({
       command: this,
       query: ImageCreateDocument,

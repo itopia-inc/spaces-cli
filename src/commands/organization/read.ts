@@ -1,8 +1,5 @@
-import * as Types from "../../graphql-types";
-
 import { Command, flags } from "@oclif/command";
 import handler from "../../graphql-query-handler";
-import gql from "graphql-tag";
 
 const OrganizationReadDocument = `
 query organizationRead($id: ID!) {
@@ -20,7 +17,7 @@ query organizationRead($id: ID!) {
   }
 }`;
 
-export default class organizationRead extends Command {
+export default class OrganizationRead extends Command {
   static description = "Read all properties of an organization";
 
   static examples: string[] = [
@@ -36,7 +33,7 @@ export default class organizationRead extends Command {
   };
 
   async run() {
-    const { flags } = this.parse(organizationRead);
+    const { flags } = this.parse(OrganizationRead);
     await handler({
       command: this,
       query: OrganizationReadDocument,

@@ -1,8 +1,5 @@
-import * as Types from "../../graphql-types";
-
 import { Command, flags } from "@oclif/command";
 import handler from "../../graphql-query-handler";
-import gql from "graphql-tag";
 
 const ImageReadDocument = `
 query imageRead($id: ID!, $organizationId: ID!) {
@@ -35,7 +32,7 @@ query imageRead($id: ID!, $organizationId: ID!) {
   }
 }`;
 
-export default class imageRead extends Command {
+export default class ImageRead extends Command {
   static description = "Read all properties of an image";
 
   static examples: string[] = [
@@ -55,7 +52,7 @@ export default class imageRead extends Command {
   };
 
   async run() {
-    const { flags } = this.parse(imageRead);
+    const { flags } = this.parse(ImageRead);
     await handler({
       command: this,
       query: ImageReadDocument,

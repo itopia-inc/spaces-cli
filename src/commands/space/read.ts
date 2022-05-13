@@ -1,8 +1,5 @@
-import * as Types from "../../graphql-types";
-
 import { Command, flags } from "@oclif/command";
 import handler from "../../graphql-query-handler";
-import gql from "graphql-tag";
 
 const SpaceReadDocument = `
 query spaceRead($id: ID!, $collectionId: ID!, $deploymentId: ID!) {
@@ -40,7 +37,7 @@ query spaceRead($id: ID!, $collectionId: ID!, $deploymentId: ID!) {
   }
 }`;
 
-export default class spaceRead extends Command {
+export default class SpaceRead extends Command {
   static description = "Read all properties of a space";
 
   static examples: string[] = [
@@ -64,7 +61,7 @@ export default class spaceRead extends Command {
   };
 
   async run() {
-    const { flags } = this.parse(spaceRead);
+    const { flags } = this.parse(SpaceRead);
     await handler({
       command: this,
       query: SpaceReadDocument,
