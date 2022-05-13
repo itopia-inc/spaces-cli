@@ -1,4 +1,5 @@
 import { expect, test } from "@oclif/test";
+import cli from "cli-ux";
 
 import config from "../../src/config";
 
@@ -6,7 +7,8 @@ describe("logout", () => {
   test
     .stdout()
     .command(["logout"])
-    .it("runs", (ctx) => {
+    .it("runs", async (ctx) => {
+      await cli.done();
       expect(ctx.stdout).to.contain(`
 Success!
 Authentication token cleared from configuration file.
@@ -20,7 +22,8 @@ Future requests will be unauthenticated by default.
     .do(() => config.set("token", "test token"))
     .stdout()
     .command(["logout"])
-    .it("clears the saved token", (ctx) => {
+    .it("clears the saved token", async (ctx) => {
+      await cli.done();
       expect(ctx.stdout).to.contain(`
 Success!
 Authentication token cleared from configuration file.
