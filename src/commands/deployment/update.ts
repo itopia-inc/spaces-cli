@@ -1,11 +1,5 @@
-// Note: This file is versioned because `npm run codegen` doesn't write it well.
-//       See the manually-commented-out line below, which shouldn't be written
-//       because `multiple` is an invalid option for `flags.boolean()`.
-import * as Types from "../../graphql-types";
-
 import { Command, flags } from "@oclif/command";
 import handler from "../../graphql-query-handler";
-import gql from "graphql-tag";
 
 const DeploymentUpdateDocument = `
 mutation deploymentUpdate($id: ID!, $isGoogleIdentityProviderEnabled: Boolean!, $name: String!, $organizationId: ID!) {
@@ -30,7 +24,7 @@ mutation deploymentUpdate($id: ID!, $isGoogleIdentityProviderEnabled: Boolean!, 
   }
 }`;
 
-export default class deploymentUpdate extends Command {
+export default class DeploymentUpdate extends Command {
   static description = "Update one or more of a deployment's properties";
 
   static examples: string[] = [
@@ -58,7 +52,7 @@ export default class deploymentUpdate extends Command {
   };
 
   async run() {
-    const { flags } = this.parse(deploymentUpdate);
+    const { flags } = this.parse(DeploymentUpdate);
     await handler({
       command: this,
       query: DeploymentUpdateDocument,

@@ -1,11 +1,5 @@
-// Note: This file is versioned because `npm run codegen` doesn't write it well.
-//       See the manually-commented-out line below, which shouldn't be written
-//       because `multiple` is an invalid option for `flags.boolean()`.
-import * as Types from "../../graphql-types";
-
 import { Command, flags } from "@oclif/command";
 import handler from "../../graphql-query-handler";
-import gql from "graphql-tag";
 
 const DeploymentCreateDocument = `
 mutation deploymentCreate($isGoogleIdentityProviderEnabled: Boolean!, $name: String!, $organizationId: ID!, $region: String!) {
@@ -23,7 +17,7 @@ mutation deploymentCreate($isGoogleIdentityProviderEnabled: Boolean!, $name: Str
   }
 }`;
 
-export default class deploymentCreate extends Command {
+export default class DeploymentCreate extends Command {
   static description = "Create a new deployment";
 
   static examples: string[] = [
@@ -51,7 +45,7 @@ export default class deploymentCreate extends Command {
   };
 
   async run() {
-    const { flags } = this.parse(deploymentCreate);
+    const { flags } = this.parse(DeploymentCreate);
     await handler({
       command: this,
       query: DeploymentCreateDocument,

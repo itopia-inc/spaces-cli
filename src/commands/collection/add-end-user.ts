@@ -1,12 +1,5 @@
-// Note: This file is versioned because `npm run codegen` doesn't write it well.
-//       See the manually-commented-out line below, which shouldn't be written
-//       because `multiple` is an invalid option for `flags.boolean()`,
-//       and the added `default` line above it.
-import * as Types from "../../graphql-types";
-
 import { Command, flags } from "@oclif/command";
 import handler from "../../graphql-query-handler";
-import gql from "graphql-tag";
 
 const EndUserAddDocument = `
 mutation endUserAdd($id: ID!, $deploymentId: ID!, $email: String!, $notify: Boolean!) {
@@ -22,7 +15,7 @@ mutation endUserAdd($id: ID!, $deploymentId: ID!, $email: String!, $notify: Bool
   }
 }`;
 
-export default class endUserAdd extends Command {
+export default class EndUserAdd extends Command {
   static description =
     "Add an end user to a collection (this grants permission to use the collection's spaces)";
 
@@ -52,7 +45,7 @@ export default class endUserAdd extends Command {
   };
 
   async run() {
-    const { flags } = this.parse(endUserAdd);
+    const { flags } = this.parse(EndUserAdd);
     await handler({
       command: this,
       query: EndUserAddDocument,
