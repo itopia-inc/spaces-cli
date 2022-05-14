@@ -90,7 +90,7 @@
     "codegen": "graphql-codegen --config codegen.yaml",
     "compile": "rm -rf lib && tsc -b && rm tsconfig.tsbuildinfo",
     "docsgen": "oclif-dev readme",
-    "e2e": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
+    "e2e": "nyc --extension .ts mocha --opts mocha.opts",
     "format": "prettier --ignore-path .gitignore --write .",
     "format-and-error-if-any-warnings": "warnings=$(npm run format -- --check 2>&1 >/dev/null) && if [ ! -z \"$warnings\" ]; then echo \"$warnings\" && (exit 1); fi;",
     "lint": "eslint . --config=.eslintrc --ext=.ts",

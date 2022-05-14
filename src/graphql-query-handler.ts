@@ -32,7 +32,7 @@ const handler = async ({ command, query, variables }: QueryHandlerProps) => {
       command.log(output);
     }
   } catch (error) {
-    command.error(error);
+    command.error(util.inspect(error));
   }
 };
 

@@ -1,8 +1,8 @@
-name: Test main hourly
+name: Test main daily
 
 on:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "0 16 * * *"
 
 jobs:
   test:
