@@ -1,5 +1,8 @@
-import { Command, flags } from "@oclif/command";
+import { flags } from "@oclif/command";
+
+import config from "../../config";
 import handler from "../../graphql-query-handler";
+import { CommandWithExtraLogging } from "../../logging";
 
 const OrganizationReadDocument = `
 query organizationRead($id: ID!) {
@@ -17,7 +20,7 @@ query organizationRead($id: ID!) {
   }
 }`;
 
-export default class OrganizationRead extends Command {
+export default class OrganizationRead extends CommandWithExtraLogging {
   static description = "Read all properties of an organization";
 
   static examples: string[] = [
@@ -34,10 +37,14 @@ export default class OrganizationRead extends Command {
 
   async run() {
     const { flags } = this.parse(OrganizationRead);
-    await handler({
+    const data = await handler({
       command: this,
       query: OrganizationReadDocument,
       variables: flags,
     });
+    if (config.get("printResponsesPretty")) {
+      this.table(data?.organization?.organization);
+      this.logProblem(data?.organization?.problem);
+    }
   }
 }

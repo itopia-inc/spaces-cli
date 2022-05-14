@@ -1,5 +1,8 @@
-import { Command, flags } from "@oclif/command";
+import { flags } from "@oclif/command";
+
+import config from "../../config";
 import handler from "../../graphql-query-handler";
+import { CommandWithExtraLogging } from "../../logging";
 
 const OrganizationListDocument = `
 query organizationList {
@@ -19,7 +22,7 @@ query organizationList {
   }
 }`;
 
-export default class OrganizationList extends Command {
+export default class OrganizationList extends CommandWithExtraLogging {
   static description = "List all of your organizations";
 
   static examples: string[] = ["spaces organization:list"];
@@ -30,10 +33,14 @@ export default class OrganizationList extends Command {
 
   async run() {
     const { flags } = this.parse(OrganizationList);
-    await handler({
+    const data = await handler({
       command: this,
       query: OrganizationListDocument,
       variables: flags,
     });
+    if (config.get("printResponsesPretty")) {
+      this.table(data?.me?.userAccount?.organizations);
+      this.logProblem(data?.me?.problem);
+    }
   }
 }

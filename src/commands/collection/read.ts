@@ -1,5 +1,8 @@
-import { Command, flags } from "@oclif/command";
+import { flags } from "@oclif/command";
+import config from "../../config";
+
 import handler from "../../graphql-query-handler";
+import { CommandWithExtraLogging } from "../../logging";
 
 const CollectionReadDocument = `
 query collectionRead($id: ID!, $deploymentId: ID!) {
@@ -22,7 +25,7 @@ query collectionRead($id: ID!, $deploymentId: ID!) {
   }
 }`;
 
-export default class CollectionRead extends Command {
+export default class CollectionRead extends CommandWithExtraLogging {
   static description = "Read all properties of a collection";
 
   static examples: string[] = [
@@ -43,10 +46,14 @@ export default class CollectionRead extends Command {
 
   async run() {
     const { flags } = this.parse(CollectionRead);
-    await handler({
+    const data = await handler({
       command: this,
       query: CollectionReadDocument,
       variables: flags,
     });
+    if (config.get("printResponsesPretty")) {
+      this.logCollection(data?.collection?.collection);
+      this.logProblem(data?.collection?.problem);
+    }
   }
 }
